@@ -1,0 +1,23 @@
+description: Personal website and blog
+baseurl: ""
+url: https://simongrieve.uk
+title: Simon Grieve
+permalink: /blog/:title/
+cdn_url: https://cdn.simongrieve.uk/
+sass:
+  sass_dir: assets/scss
+  style: compressed
+  
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
+collections:
+  notes:
+    output: true
+    permalink: /notes/:slug/
+  archive:
+    output: true
+    permalink: blog/archive/:slug/
+  about:
+    output: true
+    permalink: /pages/:slug

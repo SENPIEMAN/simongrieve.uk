@@ -1,0 +1,106 @@
+/* ==========================================================
+   Body
+   ========================================================== */
+
+body {
+
+  font-family: $font-sans;
+
+  line-height: 1.6;
+
+  color: colour(text);
+
+  background: colour(bg);
+
+  transition:
+    background $transition,
+    color $transition;
+
+}
+
+/* ==========================================================
+   Headings
+   ========================================================== */
+
+$headings: (
+
+  h1: 1.5rem,
+  h2: 1.4rem,
+  h3: 1.3rem,
+  h4: 1.15rem,
+  h5: 1rem,
+  h6: .875rem
+
+);
+
+@each $heading, $size in $headings {
+
+  #{$heading} {
+
+    @include heading($size);
+
+    color: colour(titles);
+
+    margin-bottom: 0;
+
+  }
+
+}
+
+/* ==========================================================
+   Links
+   ========================================================== */
+
+a {
+
+  color: colour(accent);
+
+  transition: $transition;
+
+  &:hover {
+
+    color: colour(text);
+
+  }
+
+}
+
+/* ==========================================================
+   Paragraphs
+   ========================================================== */
+
+p {
+
+  line-height: 1.6;
+
+}
+
+/* ==========================================================
+   Code
+   ========================================================== */
+
+code {
+
+  @extend %mono;
+
+  background: colour(card);
+
+  padding: .15rem .35rem;
+
+  border-radius: 4px;
+
+}
+
+pre {
+
+  @extend %mono;
+
+  overflow-x: auto;
+
+  padding: $space;
+
+  background: colour(card);
+
+  border-radius: $radius;
+
+}

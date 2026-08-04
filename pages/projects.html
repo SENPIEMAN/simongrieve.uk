@@ -1,0 +1,45 @@
+---
+title: Projects
+type: about
+slug: projects
+layout: default
+blurb: A collection of things and places I have worked on.
+permalink: /projects/
+---
+
+<main id="main" class="container">
+
+  <header class="hero">
+    <div class="avatar" role="img" aria-label="Simon Grieve"></div>
+    <div class="hero-text">
+      <h1>Simon Grieve</h1>
+      <p>All the various past-ventures, hobbies and, side-hustles I have been involved with over the years.</p>
+    </div>
+  </header>
+{% include breadcrumbs.html %}
+  <h1>Projects</h1>
+<p>I've worked on several things in my time. I like to assist people with the services they provide.</p>
+<div class="grid-2">
+    {% for project in site.data.projects %}
+    
+    <a href="{{ project.url }}" class="project">
+          <img class="project-cover" src="{{ site.cdn_url }}images/projects/{{ project.image }}" alt="{{ project.name }}">
+         <span class="project-body">
+            <span class="project-title">
+              {{ project.name }} | {{ project.role }} <br>
+              <small class="text-muted">{{ project.date }}</small>
+            
+            {{ project.description | markdownify }}
+            </span>
+            </span>
+          </a>
+    {% endfor %}
+              </div>
+              <h2>🤝 Let's Work Together</h2>
+<p>I'm always open to any opportunity to join forces with someone on their own projects. 
+    If you think after seeing what I've been involved in previously, we would be a good team, you can email me at <a href="mailto:hireme@simongrieve.uk?subject=I'm%20interested%20in%20working%20with%20you!">hireme@simongrieve.uk</a> and open up a dialogue!
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

@@ -1,0 +1,22 @@
+<footer class="footer">
+
+<div class="footer-left">
+
+    <!-- Social Links -->
+
+<nav class="socials">
+{% for social in site.data.nav.socials %}
+  <a href="{{ social.url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ social.name }}">
+    <img src="{{ '/assets/images/socials/' | append: social.icon | relative_url }}" alt="{{ social.name }}" class="social-img"></a>
+{% endfor %}
+</nav>
+    <!-- Footer text -->
+
+    <div class="footer-text">
+
+      <p>I listen to Deftones.<br>
+        &copy; <script>document.write(new Date().getFullYear())</script> Simon Grieve.
+      </p>
+    </div>
+</div>
+  </footer>

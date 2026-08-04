@@ -1,0 +1,73 @@
+/* ==========================================================
+   Card Grid
+   ========================================================== */
+
+.cards {
+
+  @include grid(repeat(2, 1fr), .75rem);
+
+  > .card:nth-child(3n + 1) {
+
+    grid-column: 1 / -1;
+
+  }
+
+  @include mobile {
+
+    grid-template-columns: 1fr;
+
+  }
+
+}
+
+/* ==========================================================
+   Cards
+   ========================================================== */
+
+.card,
+.project {
+
+  @extend %glass;
+  @extend %stack;
+
+  padding: $space-sm;
+
+  @for $i from 1 through 6 {
+
+    &:nth-child(#{$i}) {
+
+      animation-delay: #{$i * .08}s;
+
+    }
+
+  }
+
+  &-title {
+
+    @extend %card-title;
+
+  }
+
+}
+
+/* ==========================================================
+   Images
+   ========================================================== */
+
+.card-img,
+.card-cover,
+.project-cover {
+
+  @extend %cover-image;
+
+  height: $card-cover-height;
+
+}
+
+.about-cover {
+
+  @extend %cover-image;
+
+  height: $about-cover-height;
+
+}

@@ -1,0 +1,84 @@
+/* ==========================================================
+   Tables
+   ========================================================== */
+
+table {
+
+  width: 100%;
+
+  border-collapse: collapse;
+
+  overflow: hidden;
+
+  margin: $space 0;
+
+  border: 1px solid colour(border);
+
+  border-radius: $radius;
+
+}
+
+th,
+td {
+
+  padding: .75rem $space;
+
+  text-align: left;
+
+  border-bottom: 1px solid colour(border);
+
+}
+
+th {
+
+  background: colour(card);
+
+  font-weight: 900;
+
+  text-transform: uppercase;
+
+}
+
+tbody tr:hover {
+
+  background: rgba(255,255,255,.03);
+
+}
+
+/* ==========================================================
+   Tags
+   ========================================================== */
+
+.tag {
+
+  display: inline-block;
+
+  padding: 4px 10px;
+
+  margin: 0 4px 8px 0;
+
+  background: colour(button);
+
+  color: colour(text);
+
+  border: 1px solid colour(button-border);
+
+  border-radius: 4px;
+
+  font-size: .8rem;
+
+  font-weight: 600;
+
+}
+
+/* ==========================================================
+   Section Title
+   ========================================================== */
+
+.section-title {
+
+  @extend %section-heading;
+
+  margin-bottom: $space-sm;
+
+}

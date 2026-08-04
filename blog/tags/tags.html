@@ -1,0 +1,32 @@
+---
+layout: tags
+title: Posts by Tag
+og_type: tags
+permalink: /blog/tags/
+blurb: A list of all the tags used in my blog posts.
+---
+
+<p>Below is a list of all the tags I've used in my posts. Click on a tag to see all the posts associated with it.</p>
+<ul class="tag-list">
+
+{% assign tags = site.tags | sort %}
+
+{% for tag in tags %}
+
+  <li>
+<span class="tag">
+    <a href="/blog/tags/{{ tag[0] | slugify }}/">
+
+      {{ tag[0] }}
+
+    </a>
+
+    ({{ tag[1].size }})
+
+  </li>
+
+{% endfor %}
+
+</ul>
+
+</span>

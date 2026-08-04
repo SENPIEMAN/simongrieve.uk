@@ -1,0 +1,74 @@
+{% include head.html %}
+{% include toggle.html %}
+<body>
+{% assign words = content | number_of_words %}
+{% assign minutes = words | divided_by: 200 %}
+
+
+
+<main>
+
+  <header class="hero">
+    <div class="avatar" role="img" aria-label="Simon Grieve"></div>
+    <div class="hero-text">
+        <h1>{{ page.description }}</h1>
+        {% for category in page.categories %}
+   <p>📁 <strong><a href="/blog/categories/{{ category | slugify }}/">{{ category }}</a></strong></p>
+{% endfor %}
+       
+        <p>🗓️ {{ page.date | date: "%B %d, %Y" }} 🕐 {% if minutes < 1 %}
+  <span>Less than 1 min read</span>
+{% else %}
+  <span>{{ minutes }} min read</span>
+{% endif %} </p> 
+
+   <p>  {% for tag in page.tags %} <span class="tag"><a href="/blog/tags/{{ tag | slugify }}/">
+  {{ tag }}
+</a></span>{% endfor %}</p>
+
+    </div>
+    
+  </header>
+    {% include breadcrumbs.html %}
+
+{% if page.archived %}
+  <div class="archive-notice">
+    <h4>🗃️ Archived Article</h4>
+    <p><i>"{{ page.description }}"</i> was originally posted in {{ page.date | date: "%b %Y" }}. It has been imported from a previous blog of mine.
+    The article itself has been purged of all links and images, but the rest of its content remains unedited. Bad grammar and all.</p>
+</div>
+{% endif %}
+        <section class="blog-post">
+{% if page.currently_artist %}
+<p><span class="currently-artist">🎧 <strong>{{ page.currently_artist }}</strong> - <i>{{ page.currently_song }}</i>
+</span></p>
+{% endif %}
+{% if page.currently_song %}
+
+{% endif %}
+            {{ content }}
+
+        </section>
+<hr class="hard">
+<nav class="post-navigation">
+
+  {% if page.previous %}
+    <a class="post-nav prev" href="{{ page.previous.url }}">
+      ← {{ page.previous.description }}
+    </a>
+  {% endif %}
+  <a class="post-nav" href="/blog/">
+    All Posts
+  </a>
+  {% if page.next %}
+    <a class="post-nav next" href="{{ page.next.url }}">
+      {{ page.next.description }} →
+    </a>
+  {% endif %}
+
+</nav>
+</main>
+{% include footer.html %}
+{% include scripts.html %}
+</body>
+</html>

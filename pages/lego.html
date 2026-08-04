@@ -1,0 +1,46 @@
+---
+layout: default
+type: about
+slug: lego
+title: Lego
+permalink: /lego/
+blurb: I like playing with bricks.
+description: A catalogue of all the Lego kits I have built.
+---
+
+<main id="main" class="container">
+
+  <header class="hero">
+    <div class="avatar" role="img" aria-label="Simon Grieve"></div>
+    <div class="hero-text">
+      <h1>Simon Grieve</h1>
+      <p>My "mid-life crisis"</p>
+    </div>
+  </header>
+{% include breadcrumbs.html %}
+
+<p>Towards the end of 2025 I purchased my first Lego kit. Lego wasn't a luxury my parents could afford as a child, and as such wasn't something I showed an interest in.</p>
+<p>It wasn't until a trip to the Lego Store in Battersea at Christmas last year that I thought I'd buy one - the McLaren Speed Champions Car. That, as they say, was how it all started.</p>
+  <h1>Kits I've built</h1>
+<div class="grid-3">
+    {% for lego in site.data.lego %}
+    
+    <div class="lego">
+          <img class="lego-cover" src="{{ site.cdn_url }}images/lego/{{ lego.thumb }}" alt="{{ lego.kit }}">
+         <span class="lego-body">
+            <span class="lego-title">
+              {{ lego.kit }}<br>
+              {% if lego.subtitle %} <small class="small">{{ lego.subtitle }}</small><br>
+              {% endif %}
+              <small class="text-muted">{{ lego.date | date: "%B %Y" }}</small><br>
+            {{ lego.collection }} <span class="nav-separator">{{ separator }}</span> {{lego.pieces}} pieces 
+          <span class="lego-id">#<a href="https://www.lego.com/en-gb/product/{{lego.id}}/">{{lego.id}}</a></span>
+          </span>
+            </div>
+    {% endfor %}
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

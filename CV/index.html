@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simon Grieve - CV</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+:root {
+    --bg: #1f1a27;
+    --card: #4a4154c2;
+    --button: #383041;
+    --track: #5a4571;
+    --border: #665293;
+    --text: #9ca2c4;
+    --muted: #707697;
+    --accent: #493c68;
+    --font-sans: "Inconsolata", sans-serif;
+    --font-mono: "Inconsolata", monospace;
+}
+/* --- Light Mode Colors --- */
+[data-theme="light"] {
+    --bg: #ffffff;
+    --card: #f4f4f4;
+    --text: #1a1a1a;
+    --muted: #4a4a4a;
+    --border: #cccccc;
+    --track: #eeeeee;
+    --button: #e0e0e0;
+}
+
+[data-theme="light"] h1, 
+[data-theme="light"] .job-title,
+[data-theme="light"] .job-title-past,
+[data-theme="light"] .edu-item b {
+    color: #000;
+}
+
+* {
+    box-sizing: border-box; /* Changed from content-box for better mobile math */
+    -webkit-print-color-adjust: exact;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--font-sans);
+    margin: 0;
+    padding: 0;
+    line-height: 1.1;
+}
+
+/* --- Layout Containers --- */
+.page {
+    width: min(210mm, 100%); /* Allows it to shrink on mobile */
+    min-height: 297mm;
+    padding: 40px; /* Reduced slightly for mobile comfort */
+    margin: 20px auto;
+    background-color: var(--bg);
+    border: 1px solid var(--muted);
+}
+
+.container {
+    display: flex;
+    gap: 40px;
+}
+
+.main-col { flex: 3; }
+.side-col { flex: 1.2; }
+
+/* --- Typography --- */
+header {
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 20px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+h1 {
+    font-family: var(--font-mono);
+    color: #fff;
+    margin: 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: clamp(1.5rem, 5vw, 2.2rem); /* Fluid sizing */
+}
+
+h2 {
+    font-family: var(--font-mono);
+    color: var(--muted);
+    font-size: 1.1rem;
+    border-bottom: 1px solid var(--track);
+    margin-top: 25px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+p, li {
+    font-family: var(--font-mono);
+    font-size: 0.935rem;
+    color: var(--text);
+}
+.subtitle {
+
+color: var(--border);
+
+font-family: var(--font-mono);
+
+font-size: 0.95rem;
+
+margin: 8px 0;
+
+font-weight: 700;
+
+}
+
+/* --- Job Entries --- */
+.job-entry { margin-bottom: 22px; }
+
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap; /* Allows date to drop below title if needed */
+    gap: 5px;
+}
+.job-title-past { font-weight: bold; color: #fff; font-size: 1.05rem; }
+.job-title { font-weight: bold; color: #fff; font-size: 1.05rem; }
+.job-date { font-family: var(--font-mono); font-size: 0.85rem; color: var(--muted); }
+.company { color: var(--muted); font-size: 0.9rem; margin-bottom: 8px; }
+
+/* --- Components --- */
+.skill-tag {
+    display: inline-block;
+    background: var(--button);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-weight: 600;
+    padding: 4px 10px;
+    margin: 0 4px 8px 0;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+.achievement {
+    font-style: italic;
+    color: var(--text);
+    font-size: 0.9rem;
+    margin-top: 8px;
+    border-left: 2px solid var(--accent);
+    padding-left: 12px;
+}
+.edu-item b {
+
+color: #fff;
+
+display: block;
+
+margin-bottom: 4px;
+
+}
+/* --- Interface Layout --- */
+.interface-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    background: var(--bg);
+}
+
+
+
+/* --- Toggle Switch Styling --- */
+.theme-switch {
+    display: inline-block;
+    height: 34px;
+    position: relative;
+    width: 60px;
+}
+
+.theme-switch input { display: none; }
+
+.slider {
+    background-color: var(--button);
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+    border-radius: 34px;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.slider:before {
+    background-color: white;
+    bottom: 4px;
+    content: "";
+    height: 24px;
+    left: 4px;
+    position: absolute;
+    transition: .4s;
+    width: 24px;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+input:checked + .slider { background-color: var(--accent); }
+input:checked + .slider:before { transform: translateX(26px); }
+
+.slider .icon { font-size: 14px; }
+
+/* Sticky controls for mobile */
+@media (max-width: 768px) {
+    .interface-controls {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        border-bottom: 1px solid var(--border);
+    }
+}
+/* =========================================================
+   MOBILE OPTIMIZATIONS
+   ========================================================= */
+@media (max-width: 768px) {
+    .page {
+        padding: 20px;
+        margin: 0;
+        border: none; /* Full width looks cleaner on mobile */
+    }
+
+    .container {
+        flex-direction: column; /* Stacks the sidebar under the main content */
+        gap: 20px;
+    }
+
+    .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        line-height: 1.4;
+    }
+
+    .job-header {
+        flex-direction: column; /* Better readability for dates */
+        align-items: flex-start;
+    }
+
+    .job-date {
+        margin-bottom: 4px;
+    }
+
+    /* Make buttons and links easier to tap */
+    .skill-tag {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+}
+
+@media print {
+    body { background: white; color: black; }
+    .page { margin: 0; border: none; width: 100%; }
+    .no-print { display: none; }
+    /* Ensure the 2-column layout stays for paper */
+    .container { flex-direction: row !important; } 
+}
+/* --- Download Button Styles --- */
+.download-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px 10px;
+    background: var(--bg);
+}
+
+.download-btn {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.download-btn:hover {
+    background: #5a4a82; /* Slightly lighter than accent */
+    transform: translateY(-2px);
+}
+
+.download-btn:active {
+    transform: translateY(0);
+}
+
+/* --- Mobile Specific Button Behavior --- */
+@media (max-width: 768px) {
+    .download-container {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        border-bottom: 1px solid var(--border);
+        padding: 15px;
+    }
+    
+    .download-btn {
+        width: 100%; /* Makes it easier to tap on phones */
+    }
+}
+
+/* --- The Critical Print Rule --- */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+}
+    </style>
+</head>
+<body>
+<div class="no-print interface-controls">
+    <button onclick="window.print()" class="download-btn">
+        <span>📄</span> PDF
+    </button>
+    
+    <label class="theme-switch" for="checkbox">
+        <input type="checkbox" id="checkbox" />
+        <div class="slider">
+            <span class="icon sun">☀️</span>
+            <span class="icon moon">🌙</span>
+        </div>
+    </label>
+</div>
+    <div class="page">
+        <header>
+            <h1>Simon Grieve</h1>
+            <p class="subtitle">Community • Retail Management • Customer Experience</p>
+            <p class="contact-info">London, UK • hireme@simongrieve.uk • www.simongrieve.uk • 07860675940</p>
+        </header>
+
+        <div class="container">
+            <div class="main-col">
+                <h2 style="margin-top:0;">Profile</h2>
+                <p>Experienced retail and hospitality manager with a strong background in customer experience, leadership, and team development. Skilled in fast-paced environments and committed to delivering high service standards.</p>
+
+                <h2>Recent Experience</h2>
+                
+                <div class="job-entry">
+                    <div class="job-header">
+                        <span class="job-title">Assistant Manager</span>
+                        <span class="job-date">May 2021 – Present</span>
+                    </div>
+                    <div class="company">Card Factory — Essex</div>
+                    <ul>
+                        <li>Staff supervision and shift leadership</li>
+                        <li>Stock management and ordering</li>
+                        <li>Cash handling and store operations</li>
+                        <li>Customer service and product advice</li>
+                    </ul>
+                </div>
+
+                <div class="job-entry">
+                    <div class="job-header">
+                        <span class="job-title" style="color: var(--muted);">Redundancy (Pandemic)</span>
+                        <span class="job-date">Mar 2020 – May 2021</span>
+                    </div>
+                    <p class="gap-notice">Impacted by national lockdowns at the start of the COVID-19 Pandemic.</p>
+                </div>
+
+                <div class="job-entry">
+                    <div class="job-header">
+                        <span class="job-title">Retail Sales Assistant</span>
+                        <span class="job-date">Sept 2019 – Mar 2020</span>
+                    </div>
+                    <div class="company">Hale Vaping — Essex</div>
+                    <ul>
+                        <li>Customer sales and product advice</li>
+                        
+                    </ul>
+                </div>
+
+                <div class="job-entry">
+                    <div class="job-header">
+                        <span class="job-title">Team Manager</span>
+                        <span class="job-date">Nov 2018 – Jul 2019</span>
+                    </div>
+                    <div class="company">McMullen & Sons — Woodford Green</div>
+                    <div class="achievement">
+                        🏆 McMullen's Bronze Training Award<br>
+                        🎯 100% Mystery Shopper score
+                    </div>
+                </div>
+
+                <div class="job-entry">
+                    <div class="job-header">
+                        <span class="job-title">Assistant Manager</span>
+                        <span class="job-date">Oct 2017 – Aug 2018</span>
+                    </div>
+                    <div class="company">Mitchells & Butlers — Farringdon</div>
+                    <ul>
+                        <li>Staff management and training</li>
+                        <li>Sales reporting and stock control</li>
+                        <li>Opening/closing procedures</li>
+                    </ul>
+                </div>
+                            <h2>Other Experience</h2>
+                        <span class="job-title-past">Store Manager</span> <span class="job-date"> (2014–'17)</span>, 
+                        <span class="job-title-past">Community Moderator</span> <span class="job-date">(2003–'09)</span>.
+
+<p style="font-size: 0.9rem; line-height: 1.1;">Early career experience focused on store management, hospitality leadership, team supervision, and customer service in busy West End venues.</p>
+            </div>
+
+            <div class="side-col">
+                <h2 style="margin-top:0;">Skills</h2>
+                <div class="skill-tag">Customer Service</div>
+                <div class="skill-tag">Team Leadership</div>
+                <div class="skill-tag">Retail Operations</div>
+                <div class="skill-tag">Stock Management</div>
+                <div class="skill-tag">Staff Training</div>
+                <div class="skill-tag">Problem Solving</div>
+                <div class="skill-tag">Community Moderation</div>
+
+                <h2>Certifications</h2>
+                <p style="font-size: 0.9rem; line-height: 1.8;">
+                    <strong>Food Hygiene Level 3</strong><br>
+                    <strong>First Aid Certified</strong><br>
+                    <strong>APLH Level 2</strong>
+                </p>
+
+                <h2>Education</h2>
+
+                <div class="edu-item" style="font-size: 0.9rem;">
+                    <b>Davenant Foundation School</b>
+                    <span style="color: var(--muted); font-family: var(--font-mono); font-size: 0.8rem;">
+                        English <i>(C)</i>, IT <i>(C)</i>, Mathematics <i>(D)</i>, Science <i>(C, D)</i>, French <i>(D)</i>.
+                    </span>
+
+                </div>
+                <h2>Interests</h2>
+
+                <p style="font-size: 0.85rem; color: var(--muted); line-height: 1.6;">
+                    Photography • Cooking • Walking • Water Sports • Gaming • PC Building • Web Design
+                </p>
+
+            </div>
+            
+        </div>
+  
+<center><p style="font-size: 0.9rem; color: var(--muted); line-height: 1.5;"><i>References are available upon request.</i></p></center>
+
+    </div>
+
+  <script src="/script.js"></script>
+
+</body>
+</html>

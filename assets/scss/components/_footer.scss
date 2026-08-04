@@ -1,0 +1,118 @@
+/* ==========================================================
+   Footer
+   ========================================================== */
+
+.footer {
+
+  @include flex(row, 0, flex-start);
+
+  position: fixed;
+
+  bottom: 0;
+
+  padding: 1.15rem;
+
+  flex-shrink: 0;
+
+}
+
+/* ==========================================================
+   Left
+   ========================================================== */
+
+.footer-left {
+
+  @extend %stack;
+
+  gap: .2rem;
+
+}
+
+.footer-left p {
+
+  @extend %mono;
+
+  font-size: .725rem;
+
+  line-height: 1.5;
+
+  color: colour(muted);
+
+}
+
+/* ==========================================================
+   Right
+   ========================================================== */
+
+.footer-right {
+
+  @extend %row;
+
+  gap: .65rem;
+
+  flex-shrink: 0;
+
+}
+
+.footer a {
+
+  display: inline-block;
+
+  padding: 3px;
+
+}
+
+/* ==========================================================
+   Mobile
+   ========================================================== */
+
+@include mobile {
+
+  .footer {
+
+    position: relative;
+
+    padding: $space-md;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+
+    gap: $space-md;
+
+  }
+
+}
+
+/* ==========================================================
+   Social Icons
+   ========================================================== */
+
+.socials {
+  bottom: 0.12rem;
+  left: 3rem;
+  display: flex;
+  gap: 0.8rem;
+}
+
+.social {
+  a {
+    padding: 3px; 
+    display: inline-block;
+  }
+
+  &-img {
+    width: 16px;
+    height: auto;
+    filter: (var(--social-filter));
+    opacity: 0.7;
+    transition: var(--transition);
+  }
+
+  &:hover img {
+    opacity: 1;
+    transform: translateY(-2px);
+  }
+}

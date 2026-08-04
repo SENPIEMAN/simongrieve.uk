@@ -1,0 +1,69 @@
+/* ==========================================================
+   Hero
+   ========================================================== */
+
+.hero {
+
+  @extend %row;
+
+  align-items: center;
+
+  .avatar {
+
+    width: $avatar-size;
+    height: $avatar-size;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    border: $border-width solid colour(border);
+
+    background:
+      colour(avatar)
+      no-repeat
+      center / cover;
+
+  }
+
+  &-text {
+
+    @extend %stack;
+
+    gap: .25rem;
+
+    h1 {
+
+      color: colour(text);
+
+      @include mobile {
+
+        font-size: 1.25rem;
+
+      }
+
+    }
+
+    p {
+
+      @extend %mono;
+
+      color: colour(muted);
+
+      font-size: .875rem;
+
+    }
+
+  }
+
+}
+
+@include mobile {
+
+  .hero {
+
+    gap: $space-md;
+
+  }
+
+}

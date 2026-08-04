@@ -1,0 +1,63 @@
+---
+layout: default
+title: The Blog
+og_type: blog
+blurb: A collection of my thoughts and experiences as I set off on a new journey in to web development.
+---
+<main>
+  <header class="hero">
+    <div class="avatar" role="img" aria-label="Simon Grieve"></div>
+    <div class="hero-text">
+      <h1>Simon Grieve</h1>
+        <h3>The Blog</h3>
+        <p>This is where I share my thoughts and experiences.</p>
+    </div>
+  </header>
+  {% include breadcrumbs.html %}
+<h1>Introduction</h1>
+  <p>I used to have a blog years ago, but abandoned the idea after realising all I was posting were just ramblings.</p>
+  <p>Now, I want to try again, but this time with a more focused approach. I want to write about my experiences as I set off on a new journey in to web development.
+    Despite having a pretty intermediate understanding of building websites - I want to document my journey as I learn more about the field, and hopefully share some useful insights along the way.</p>
+  <p>So, if you are interested in web development, or just want to follow along with my journey, then please feel free to check back here regularly for new posts. 
+    I will be posting about my experiences, what I have learned, and any useful resources I come across.</p>
+
+<h2>Posts</h2>
+  <div class="grid2">
+<div class="cards">
+
+{% assign posts = site.posts %}
+
+{% for post in posts %}
+
+<a href="{{ post.url }}" class="card" style="text-decoration: none;" >
+ <div class="card-title">
+{{ post.emoji }} {{ post.title }}
+</div>
+<p>{{ post.blurb }}</p>
+  <small>Posted: {{ post.date | date: "%B %d, %Y" }}</small>
+</a>
+
+{% endfor %}
+</div>
+</div>
+        <hr class="hard">
+        <h2>Notes</h2>
+  <div class="grid2">
+<div class="cards">
+
+{% assign notes = site.notes | sort: year | reverse %}
+{% for note in notes %}
+
+<a href="{{ note.url }}" class="card">
+ <div class="card-title">
+📝 {{ note.title }}
+</div>
+<p>{{ note.description }}</p>
+  <small>Posted: {{ note.date | date: "%B %d, %Y" }}</small>
+</a>
+
+{% endfor %}
+</div>
+</div>
+</main>
+ 

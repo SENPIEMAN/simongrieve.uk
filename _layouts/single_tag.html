@@ -1,0 +1,26 @@
+{% include head.html %}
+{% include toggle.html %}
+<body>
+{% assign posts = site.tags[page.tag] %}
+<main>
+  <header class="hero">
+    <div class="avatar" role="img" aria-label="Simon Grieve"></div>
+    <div class="hero-text">
+        <h1>Posts Tagged: {{ page.tag }}</h1>
+        <p>All {{ posts.size }} {{ page.tag }} related posts.</p>
+         
+    </div>
+    
+  </header>
+  <div class="breadcrumbs">{% include breadcrumbs.html %}</div>
+   <div class="post-navigation">
+  <a class="post-nav" href="/blog/">Back to Blog</a>
+  </div>
+
+        {{ content }} 
+    </main>
+
+{% include footer.html %}
+{% include scripts.html %}
+</body>
+</html>

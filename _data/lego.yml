@@ -1,0 +1,85 @@
+
+- kit: Millennium Falcon™
+  id: 75375
+  pieces: 921
+  collection: Star Wars™
+  date: 2026-05-06
+  thumb: Falcon.png
+
+- kit: GameBoy™
+  id: 72046
+  pieces: 421
+  collection: LEGO® Super Mario™
+  date: 2026-02-13
+  thumb: GameBoy.png
+
+- kit: BWT Alpine F1® Team A524 Race Car
+  id: 77248
+  pieces: 258
+  collection: Speed Champions
+  date: 2026-01-17
+  thumb: Alpine.png
+- kit: Oracle Red Bull Racing RB20 F1® Race Car
+  id: 77243
+  pieces: 251
+  collection: Speed Champions
+  date: 2026-01-17
+  thumb: RedBull.png
+- kit: Ferrari SF-24 F1® Race Car
+  id: 77242
+  pieces: 275
+  collection: Speed Champions
+  date: 2025-12-17
+  thumb: Ferrari.png
+- kit: MoneyGram Haas F1® Team VF-24 Race Car
+  id: 77250
+  pieces: 242
+  collection: Speed Champions
+  date: 20206-01-17
+  thumb: Haas.png
+- kit: KICK Sauber F1® Team C44 Race Car
+  id: 77247
+  pieces: 259
+  collection: Speed Champions
+  date: 2026-01-17
+  thumb: Kick.png
+- kit: McLaren F1® Team MCL38 Race Car
+  id: 77251
+  pieces: 269
+  collection: Speed Champions
+  date: 2025-12-17
+  thumb: McLaren.png
+- kit: Aston Martin Aramco F1® AMR24 Race Car
+  id: 77245
+  pieces: 269
+  collection: Speed Champions
+  date: 2026-01-17
+  thumb: Aston.png
+- kit: Mercedes-AMG F1® W15 Race Car
+  id: 77244
+  pieces: 267
+  collection: Speed Champions
+  date: 2026-01-17
+  thumb: Merc.png
+- kit: Williams Racing FW46 F1® Race Car
+  id: 77249
+  pieces: 263
+  collection: Speed Champions
+  date: 2026-01-17
+  thumb: Williams.png
+- kit: Lightning McQueen
+  id: 77255
+  pieces: 270
+  subtitle: Kerchow!
+  collection: Speed Champions
+  date: 2026-01-16
+  thumb: Lightning.png
+- kit: Time Machine from Back to the Future
+  subtitle: Just call it a DMC DeLorean...
+  id: 77256
+  pieces: 357
+  collection: Speed Champions
+  date: 2026-01-16
+  thumb: Time.png
+
+  separator: "•"

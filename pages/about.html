@@ -1,0 +1,73 @@
+---
+layout: default
+type: about
+slug: about
+title: About Me
+blurb: "Hi, I'm Simon"
+permalink: /about/
+---
+
+<main id="main" class="container">
+
+  <header class="hero">
+    <div class="avatar" role="img" aria-label="Simon Grieve"></div>
+    <div class="hero-text">
+      <h1>Simon Grieve</h1>
+      <p>I hate writing these things...</p>
+    </div>
+  </header>
+{% include breadcrumbs.html %}
+<h1>About Me</h1>
+
+<p>Hi, 👋🏻 I'm Simon. I'm based in the UK. I have a passion for building things that are simple, thoughtful and genuinely useful. Most of my time is spent writing code, experimenting with new technologies, or refining the tools and workflows that make development more enjoyable.
+  I enjoy understanding how things work under the hood and believe there's always something new to learn.</p>
+
+<p>This site is my corner of the internet — a place to document projects, share ideas, and write about the things I'm learning. 
+  You'll find articles on software development, Linux, web technologies, and the occasional deep dive into a problem that took me far longer to solve than I'd like to admit. 
+  Alongside longer posts, I also keep shorter notes, which serve as a public notebook for ideas, discoveries and useful snippets I don't want to lose.</p>
+
+<p>I enjoy building with technologies that give me control over the final product. That's one of the reasons this site is built with Jekyll and a collection of custom Ruby tooling rather than a traditional CMS. 
+  Building the platform has become almost as rewarding as writing the content itself.</p>
+
+<p>Outside of software, I enjoy photography, gaming, music and exploring open-source software. I'm a long-time Linux user and enjoy experimenting with different distributions, self-hosting services and generally tinkering with anything that can be customised or automated.</p>
+
+<p>Whether you've arrived here through a search engine, a social media post, or pure chance, I hope you find something useful. 
+  If an article helps you solve a problem, sparks an idea, or simply makes you curious to explore a topic further, then this site has done exactly what it was built to do.</p>
+
+  {% for item in site.data.about.personal %}
+  <h1>{{ item.title }}</h1>
+
+
+<div class="grid-about">
+    <a href="{{item.slug}}" class="project">
+          <img class="about-cover" src="/assets/images/projects/{{ item.cover }}" alt="{{ project.name }}">
+         
+            <span class="project-title">
+              {{ item.title }}<br>
+            
+            {{ item.description | markdownify }}
+          
+            </a>
+    {% endfor %}
+              </div>
+               {% for item in site.data.about.projects %}
+  <h1>{{ item.title }}</h1>
+
+
+<div class="grid-about">
+    <a href="{{item.slug}}" class="project">
+          <img class="about-cover" src="/assets/images/projects/{{ item.cover }}" alt="{{ project.name }}">
+         
+            <span class="project-title">
+              {{ item.title }}<br>
+            
+            {{ item.description | markdownify }}
+          
+            </a>
+    {% endfor %}
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

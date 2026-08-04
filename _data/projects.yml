@@ -1,0 +1,28 @@
+- name: Casterlabs
+  type: community
+  role: Community Manager
+  date: "2023 - Onwards"
+  description: Head of Community and writer of the documentation for an all-in-one utility suite for Livestreamers. 
+  image: casterlabs.png
+  url: /projects/casterlabs/
+- name: Brime Live
+  type: community
+  role: Community Support
+  description: A start-up livestreaming platform. Working as part of the Community Team dealing with support and Trust & Safety.
+  date: 2021 - 2023
+  image: brime.png
+  url: /projects/brime-live/
+- name: Duck Butter Podcast
+  type: podcast
+  role: Podcast Host
+  description: Started during the Pandemic, we talked mostly about Video Games.
+  date: 2020 - 2021
+  image: duckbutter.png
+  url: /projects/duck-butter/
+- name: Essex Central Magazine
+  type: social
+  role: Social Media Director
+  date: 2010 - 2012
+  description: Worked for a locally distributed glossy A5 lifestyle magazine.
+  image: ecm.jpg
+  url: /projects/essex-central/

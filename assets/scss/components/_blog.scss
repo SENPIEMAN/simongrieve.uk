@@ -1,0 +1,148 @@
+/* ==========================================================
+   Blog Post
+   ========================================================== */
+
+.blog-post {
+
+  @extend %stack;
+
+  font-size: .95rem;
+
+}
+
+/* ==========================================================
+   Headings
+   ========================================================== */
+
+.blog-post {
+
+  h1 {
+
+    @include heading(1.5rem);
+
+  }
+
+  h2 {
+
+    @include heading(1.4rem,700);
+
+  }
+
+  h3 {
+
+    @include heading(1.3rem,500);
+
+  }
+
+}
+
+/* ==========================================================
+   Content
+   ========================================================== */
+
+.blog-post {
+
+  p {
+
+    @extend %mono;
+
+    margin-bottom: $space-sm;
+
+    font-size: .875rem;
+
+  }
+
+  ul,
+  ol {
+
+    margin-bottom: $space;
+
+  }
+
+  img {
+
+    width: 100%;
+
+    border-radius: $radius;
+
+  }
+
+  hr {
+
+    margin: $space-lg 0;
+
+  }
+
+}
+
+/* ==========================================================
+   Blockquotes
+   ========================================================== */
+
+.blog-post blockquote,
+.blockquote {
+
+  @extend %panel;
+
+  border-left: 4px solid colour(border);
+
+  border-radius: 0 $radius $radius 0;
+
+  margin: $space-md 0;
+
+  p {
+
+    @extend %mono;
+
+    font-size: 1rem;
+
+    font-style: italic;
+
+    line-height: 1.5;
+
+    &:not(:last-child) {
+
+      margin-bottom: $space-sm;
+
+    }
+
+  }
+
+}
+
+/* ==========================================================
+   Navigation
+   ========================================================== */
+
+.post-navigation {
+
+  @include flex(row, $space);
+
+  justify-content: space-between;
+
+  align-self: center;
+
+}
+
+.post-nav {
+
+  flex: 1;
+
+  padding: .75rem;
+
+}
+
+.post-nav.next {
+
+  text-align: right;
+
+}
+
+.archive-notice {
+  padding: $space-sm;
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--button-border);
+  border-radius: 6px;
+  box-shadow: $shadow-hover;
+}

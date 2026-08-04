@@ -1,0 +1,112 @@
+/* ==========================================================
+   Interface Controls
+   ========================================================== */
+
+.interface-controls {
+
+  @include flex(row, .625rem, center, flex-end);
+
+  padding: .875rem;
+
+  background: colour(bg);
+
+  @include tablet {
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: $z-sticky;
+
+  }
+
+}
+
+/* ==========================================================
+   Theme Switch
+   ========================================================== */
+
+.theme-switch {
+
+  position: relative;
+
+  display: inline-block;
+
+  width: $toggle-width;
+  height: $toggle-height;
+
+}
+
+/* Hide native checkbox */
+
+.theme-switch input {
+
+  display: none;
+
+}
+
+/* ==========================================================
+   Slider
+   ========================================================== */
+
+.slider {
+
+  position: absolute;
+
+  inset: 0;
+
+  cursor: pointer;
+
+  border-radius: $toggle-height;
+
+  border: 1px solid colour(border);
+
+  background: colour(card);
+
+  transition: $transition-slow;
+
+  @include flex(row, 0, center, space-around);
+
+}
+
+/* ==========================================================
+   Knob
+   ========================================================== */
+
+.slider::before {
+
+  content: "";
+
+  position: absolute;
+
+  left: 4px;
+  bottom: 4px;
+
+  width: $toggle-knob;
+  height: $toggle-knob;
+
+  border-radius: 50%;
+
+  background: white;
+
+  transition: $transition-slow;
+
+  z-index: 2;
+
+}
+
+/* ==========================================================
+   Checked
+   ========================================================== */
+
+.theme-switch input:checked + .slider {
+
+  background: colour(accent);
+
+}
+
+.theme-switch input:checked + .slider::before {
+
+  transform: translateX(26px);
+
+}

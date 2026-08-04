@@ -1,0 +1,44 @@
+/* ==========================================================
+   Breadcrumbs
+   ========================================================== */
+
+.breadcrumbs {
+
+  @include flex(row, $space);
+
+  align-self: center;
+
+  padding: .75rem;
+
+  font-size: .875rem;
+
+  color: colour(muted);
+
+}
+
+.breadcrumbs a {
+
+  color: colour(muted);
+
+  transition: $transition;
+
+}
+
+.breadcrumbs a:hover,
+.breadcrumbs a.active {
+
+  color: colour(text);
+
+}
+
+.breadcrumbs a.active {
+
+  border-bottom: 2px solid colour(accent);
+
+}
+
+.breadcrumbs span {
+
+  margin-inline: .25rem;
+
+}

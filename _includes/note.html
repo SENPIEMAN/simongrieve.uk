@@ -1,0 +1,28 @@
+{% include head.html %}
+<main>
+  <header class="hero">
+
+    
+  </header>
+<div class="card-grid">
+    <div class="avatar" role="img" aria-label="Simon Grieve"></div>
+    <div class="hero-text">
+        <h1>{{ note.title }}</h1>
+
+    </div>
+{% assign notes = site.notes | sort: "title" %}
+
+{% for note in notes %}
+
+<a href="{{ note.url }}" class="card">
+
+<h2>{{ note.title }}</h2>
+
+<p>{{ note.description }}</p>
+
+</a>
+
+{% endfor %}
+
+</div>
+</main>

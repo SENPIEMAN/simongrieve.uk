@@ -1,0 +1,9 @@
+<nav class="breadcrumbs">
+{% for item in site.data.nav.main %}
+{% assign separator = site.data.nav.separator %}
+{% unless forloop.first %}
+    <span class="nav-separator">{{ separator }}</span>
+  {% endunless %}
+  <a href="{{ item.url | relative_url }}" {% if page.url == item.url %} class="active" {% endif %}>{{ item.title }}</a>
+{% endfor %}
+</nav>

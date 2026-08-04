@@ -1,0 +1,46 @@
+/* ==========================================================
+   Search
+   ========================================================== */
+
+.search-box {
+
+  @include flex(row, .2rem);
+
+}
+
+/* ==========================================================
+   Search Input
+   ========================================================== */
+
+#search-input {
+
+  width: 100%;
+  max-width: 400px;
+
+  margin: $space 0 $space-lg $space-lg;
+
+  padding: $space;
+
+  font: inherit;
+
+  color: colour(text);
+
+  background: colour(card);
+
+  border: 1px solid colour(border);
+
+  border-radius: $radius;
+
+  align-self: center;
+
+}
+
+/* ==========================================================
+   Results
+   ========================================================== */
+
+#search-results {
+
+  @include flex(column, $space);
+
+}

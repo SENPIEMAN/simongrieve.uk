@@ -1,0 +1,131 @@
+/* ==========================================================
+   Theme Maps
+   ========================================================== */
+
+$light-theme: (
+
+    bg: #f4f5fb,
+    card: #e7e7e7,
+    border: #7c83a6,
+
+    button: #e7e7e7,
+    button-border: #000,
+
+    text: #13162a,
+    muted: #545878,
+
+    accent: #665293,
+    titles: #441688,
+
+    track: rgba(0,0,0,.29),
+
+    avatar: url("/assets/images/avatars/avatar_light.png"),
+
+
+);
+
+$dark-theme: (
+
+    bg: #161320,
+    card: #22173F,
+
+    button: #443166,
+    button-hover: #6E33D6,
+    button-border: #704cad,
+
+    border: #30254A,
+
+    muted: #9F9AAF,
+    text: #E6E0FF,
+
+    titles: #665293,
+    accent: #CDB6FF,
+
+    track: #3B3152,
+
+    avatar: url("/assets/images/avatars/avatar.png"),
+
+
+);
+
+
+/* ==========================================================
+   Violet Palette
+   ========================================================== */
+
+$violet-scale: (
+
+1:#0f0f1f,
+2:#16152a,
+3:#231d51,
+4:#2e1f71,
+5:#372881,
+6:#413390,
+7:#4e40a7,
+8:#5f4ec9,
+9:#4e09ce,
+10:#4200b7,
+11:#aca9ff,
+12:#dddeff
+
+);
+
+
+/* ==========================================================
+   Root Variables
+   ========================================================== */
+
+:root {
+    
+    @each $name,$value in $light-theme {
+
+        --#{$name}: #{$value};
+
+    }
+      --social-filter: invert(0);
+}
+
+
+
+/* ==========================================================
+   Dark Theme
+   ========================================================== */
+
+[data-theme="dark"],
+.dark,
+.dark-theme {
+  --social-filter: invert(1);
+    @each $name,$value in $dark-theme {
+
+        --#{$name}: #{$value};
+
+    }
+
+    @each $step,$colour in $violet-scale {
+
+        --violet-#{$step}: #{$colour};
+
+    }
+
+    --violet-contrast:#fff;
+    --violet-surface:rgba(27,25,67,.5);
+    --violet-indicator:#4e09ce;
+    --violet-track:#4e09ce;
+
+}
+
+
+/* ==========================================================
+   Mobile Variable Overrides
+   ========================================================== */
+
+@media (max-width:$mobile-bp){
+
+    :root{
+
+        --radius:12px;
+        --space:1.25rem;
+
+    }
+
+}

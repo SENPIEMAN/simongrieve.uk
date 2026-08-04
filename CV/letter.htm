@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simon Grieve - Cover Letter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #1f1a27;
+            --border: #665293;
+            --text: #9ca2c4;
+            --muted: #707697;
+            --accent: #493c68;
+            --font-sans: "Inconsolata", sans-serif;
+            --font-mono: "Inconsolata", monospace;
+        }
+
+        * { box-sizing: border-box; -webkit-print-color-adjust: exact; }
+
+ body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--font-sans);
+    margin: 0;
+    padding: 10;
+    line-height: 1.1;
+}
+
+        .page {
+            width: 200mm;
+            min-height: 250mm;
+            padding: 50px 70px; /* Slightly wider margins for letters */
+            margin: 20px auto;
+            background-color: var(--bg);
+            border: 1px solid var(--border);
+        }
+
+        header {
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: var(--font-mono);
+            color: #fff;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .contact-info {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--muted);
+            margin-top: 10px;
+        }
+
+        .date {
+            font-family: var(--font-mono);
+            color: var(--border);
+            margin-bottom: 30px;
+        }
+
+        .recipient {
+            margin-bottom: 30px;
+            color: #fff;
+        }
+
+        p { margin-bottom: 20px; font-size: 1rem; }
+
+        .closing { margin-top: 40px; }
+
+        .signature {
+            font-family: var(--font-mono);
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-top: 10px;
+        }
+
+/* --- Download Button Styles --- */
+.download-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px 10px;
+    background: var(--bg);
+}
+
+.download-btn {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.download-btn:hover {
+    background: #5a4a82; /* Slightly lighter than accent */
+    transform: translateY(-2px);
+}
+
+.download-btn:active {
+    transform: translateY(0);
+}
+
+/* --- Mobile Specific Button Behavior --- */
+@media (max-width: 768px) {
+    .download-container {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        border-bottom: 1px solid var(--border);
+        padding: 15px;
+    }
+    
+    .download-btn {
+        width: 100%; /* Makes it easier to tap on phones */
+    }
+}
+/* --- The Critical Print Rule --- */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="no-print interface-controls">
+    <button onclick="window.print()" class="download-btn">
+        <span>📄</span> PDF
+    </button>
+    </div>
+    <div class="page">
+        <header>
+            <h1>Simon Grieve</h1>
+            <div class="contact-info">
+                London, UK • hireme@simongrieve.uk • www.simongrieve.uk • +447860675940
+            </div>
+        </header>
+
+        <div class="date">March 11, 2026</div>
+
+
+        <p>Dear Hiring Manager,</p>
+
+        <p>I am writing to express my strong interest in the [Job Title] position at [Company Name]. With a robust background in retail management and team leadership, I have spent my career focusing on the intersection of operational efficiency and exceptional customer experience. My experience has taught me that the core of any successful brand is the community it builds and the standards it maintains.</p>
+
+        <p>During my tenure as an Assistant Manager at Card Factory and my previous leadership roles within Mitchells & Butlers and McMullen & Sons, I have consistently delivered high-level service in fast-paced, high-pressure environments. I pride myself on my ability to lead teams through complex store operations—from stock management to staff development—while maintaining a 100% Mystery Shopper score, a testament to my commitment to service excellence.</p>
+
+        <p>Beyond my management experience, I am a tech-enthusiast with a passion for web design and community moderation. This unique blend of "boots-on-the-ground" leadership and digital literacy allows me to approach problems with both a logistical mind and a creative eye. I am particularly drawn to [Company Name] because of your commitment to [mention a company value], and I am confident that my background in hospitality and retail has prepared me to be a versatile and dedicated asset to your team.</p>
+
+        <p>Thank you for your time and for considering my application. I look forward to the possibility of discussing how my experience in leadership and customer engagement can contribute to the continued success of [Company Name].</p>
+
+        <div class="closing">
+            Sincerely,<br>
+            <div class="signature">Simon Grieve</div>
+        </div>
+    </div>
+</body>
+</html>

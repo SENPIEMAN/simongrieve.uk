@@ -1,0 +1,29 @@
+---
+layout: default
+title: Search
+permalink: /blog/search/
+---
+<main>
+      <header class="hero">
+    <div class="avatar" role="img" aria-label="Simon Grieve"></div>
+    <div class="hero-text">
+      <h1>Simon Grieve</h1>
+        <h3>The Blog</h3>
+        <p class="hero-description">Search through my blog posts.</p>
+    </div>
+  </header>
+  {% include breadcrumbs.html %}
+
+
+    <h1>Search</h1>
+<p>Looking for something specific? Try searching below!</p>
+    <input
+        id="search-input"
+        type="text"
+        placeholder="🔍Search posts..."
+        autocomplete="on">
+
+    <div id="search-results"></div>
+
+</main>
+<script src="/assets/js//search.js"></script>

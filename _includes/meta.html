@@ -1,0 +1,40 @@
+{% if page.layout == "post" %}
+  {% assign og_folder = "posts" %}
+
+{% elsif page.type == "about" %}
+  {% assign og_folder = "about" %} 
+
+{% elsif page.slug == "note" %}
+  {% assign og_folder = "notes" %} 
+  
+{% elsif page.layout == "category" %}
+  {% assign og_folder = "categories" %}
+
+{% elsif page.layout == "single_tag" %}
+  {% assign og_folder = "tags" %}
+
+{% else %}
+  {% assign og_folder = "pages" %}
+{% endif %}
+
+  <title>Simon Grieve — {{ page.title }}</title>
+
+  <meta name="description" content="{{ page.blurb }}">
+  <meta name="author" content="Simon Grieve">
+  <link rel="canonical" href="https://simongrieve.uk/">
+  <link rel="icon" href="/assets/images/favicon/favicon.ico">
+  <link rel="alternate" type="application/atom+xml" title="Simon Grieve" href="{{ '/feed.xml' | absolute_url }}">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Simon Grieve -- {{ page.title }}">
+  <meta property="og:description" content="{{ page.blurb }}">
+  <meta property="og:url" content="https://simongrieve.uk">
+  <meta property="og:image" content="{{ 'https://cdn.simongrieve.uk/images/assets/og/' | append: og_folder | append: '/' | append: page.slug | append: '.png' | absolute_url }}">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Simon Grieve — {{ page.title }}">
+  <meta name="twitter:description" content="{{ page.blurb }}">
+  {% assign og_folder = page.type | default: "pages" %}
+  <meta property="og:image" content="{{ 'https://cdn.simongrieve.uk/images/assets/og/' | append: og_folder | append: '/' | append: page.slug | append: '.png' | absolute_url }}">
+
+  <meta name="theme-color" content="#1f1a27" media="(prefers-color-scheme: dark)">

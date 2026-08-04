@@ -1,0 +1,11 @@
+personal:
+- title: Lego
+  cover: lego.png
+  description: I've recently started building Lego in my fourties. 
+  slug: /lego/
+
+projects:
+- title: Projects
+  cover: projects.png
+  description: All the various side-hustles I have been involved with over the years.
+  slug: /projects/

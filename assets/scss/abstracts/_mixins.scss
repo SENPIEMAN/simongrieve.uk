@@ -1,0 +1,187 @@
+
+/* ==========================================================
+   Responsive
+   ========================================================== */
+
+@mixin mobile {
+  @media (max-width: $mobile-bp) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: $tablet-bp) {
+    @content;
+  }
+}
+
+/* ==========================================================
+   Flexbox
+   ========================================================== */
+
+@mixin flex(
+  $direction: row,
+  $gap: 0,
+  $align: stretch,
+  $justify: flex-start,
+  $wrap: nowrap
+) {
+  display: flex;
+  flex-direction: $direction;
+  gap: $gap;
+  align-items: $align;
+  justify-content: $justify;
+  flex-wrap: $wrap;
+}
+
+/* ==========================================================
+   Grid
+   ========================================================== */
+
+@mixin grid(
+  $columns: 1fr,
+  $gap: $space
+) {
+  display: grid;
+  grid-template-columns: $columns;
+  gap: $gap;
+}
+
+/* ==========================================================
+   Surface
+   ========================================================== */
+
+@mixin surface {
+
+  background: colour(card);
+  border: $border-width solid colour(border);
+  border-radius: $radius;
+
+}
+
+@mixin glass {
+
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(5px);
+
+}
+
+@mixin card-surface {
+
+  @include surface;
+  @include glass;
+
+  transition: $transition;
+  animation: fadeUp .5s ease forwards;
+
+  &:hover {
+
+    transform: $hover-lift;
+    box-shadow: $shadow-hover;
+
+  }
+
+}
+
+/* ==========================================================
+   Cover Images
+   ========================================================== */
+
+@mixin cover-image($height) {
+
+  width: 100%;
+  height: $height;
+
+  object-fit: cover;
+
+  border-radius:
+    $radius
+    $radius
+    0
+    0;
+
+}
+
+/* ==========================================================
+   Typography
+   ========================================================== */
+
+@mixin heading(
+  $size,
+  $weight:900
+) {
+
+  font-family: $font-sans;
+  font-size: $size;
+  font-weight: $weight;
+  text-transform: uppercase;
+
+}
+
+@mixin mono {
+
+  font-family: $font-mono;
+
+}
+
+/* ==========================================================
+   Buttons
+   ========================================================== */
+
+@mixin button {
+
+  background: colour(button);
+
+  border: 1px solid colour(button-border);
+
+  color: colour(text);
+
+  border-radius: $radius;
+
+  transition: $transition;
+
+  cursor: pointer;
+
+  &:hover {
+
+    background: colour(accent);
+    color: colour(bg);
+
+  }
+
+}
+
+/* ==========================================================
+   Text Truncation
+   ========================================================== */
+
+@mixin truncate {
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+}
+
+/* ==========================================================
+   Screen Reader
+   ========================================================== */
+
+@mixin visually-hidden {
+
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+
+  margin: -1px;
+
+  overflow: hidden;
+
+  clip: rect(0 0 0 0);
+
+  white-space: nowrap;
+
+  border: 0;
+
+}

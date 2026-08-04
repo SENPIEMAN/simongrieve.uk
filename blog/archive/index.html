@@ -1,0 +1,43 @@
+---
+layout: default
+title: Archive
+permalink: /blog/archive/
+---
+{% assign posts = site.archive %}
+<main>
+  <header class="hero">
+    <div class="avatar" role="img" aria-label="Simon Grieve"></div>
+    <div class="hero-text">
+        <h1>Archived Blog Posts {{ page.tag }}</h1>
+        <p>All {{ posts.size }} Archived posts taken from my old blogs.</p>
+         
+    </div>
+    
+  </header>
+    {% include breadcrumbs.html %}
+<p>I have dabbled with Blog writing for a many years. I used to enjoy it a lot. 
+  However, I've had a fair few domains in my time, that have all gone to the TLD Graveyard. 
+  These are the posts that I've managed to scrape from the sites I <i>have</i> remembered!</p>
+<p><strong>WARNING!</strong> Some of these posts are extremely cringe-worthy!</p>
+
+
+
+{% assign archive = site.archive | sort: "original_date" | reverse %}
+{% assign years = archive | group_by_exp: "post", "post.original_date | date: '%Y'" %}
+
+{% for year in years %}
+  <h2>{{ year.name }}</h2>
+
+  <ul>
+     {% assign posts = year.items | reverse %}
+
+  {% for post in posts %}
+      <li>
+        <a href="{{ post.url }}"><span class="card-title">{{ post.title }}</span></a> • <small>{{ post.original_date | date: "%d %b" }}.</small>
+      </li>
+    {% endfor %}
+  </ul>
+{% endfor %}
+
+
+</main>

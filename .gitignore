@@ -1,0 +1,14 @@
+.github
+.github/copilot-instructions.md
+
+_site/
+.jekyll-cache/
+.sass-cache/
+.bundle/
+vendor/
+.DS_Store
+_site/
+blog/_site/
+Gemfile.lock
+tools/
+generate_og.rb

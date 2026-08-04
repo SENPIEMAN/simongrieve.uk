@@ -1,0 +1,34 @@
+separator: "•"
+
+main:
+  - title: Home
+    url: /
+
+  - title: About
+    url:  /about/
+
+  - title: Blog
+    url: /blog/
+    
+  - title: Search
+    url: /blog/search/
+
+  - title: Archive
+    url: /blog/archive/
+
+socials:
+  - name: GitHub
+    url:  https://github.com/SENPIEMAN
+    icon: GitHub.svg
+
+  - name: Bluesky
+    url:  https://bsky.app/profile/simongrieve.uk
+    icon: bluesky.svg
+
+  - name: LinkedIn
+    url:  https://www.linkedin.com/in/grievesimon/
+    icon: LinkedIn.svg
+
+  - name: Instagram
+    url:  https://instagram.com/grieve.snaps/
+    icon: instagram.svg
