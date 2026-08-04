@@ -23,7 +23,7 @@ permalink: /projects/
     {% for project in site.data.projects %}
     
     <a href="{{ project.url }}" class="project">
-          <img class="project-cover" src="{{ site.cdn_url }}images/projects/{{ project.image }}" alt="{{ project.name }}">
+          <img class="project-cover" src="{{ site.cdn_url }}images/projects/{{ project.cover }}" alt="{{ project.name }}">
          <span class="project-body">
             <span class="project-title">
               {{ project.name }} | {{ project.role }} <br>
