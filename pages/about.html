@@ -13,11 +13,11 @@ permalink: /about/
     <div class="avatar" role="img" aria-label="Simon Grieve"></div>
     <div class="hero-text">
       <h1>Simon Grieve</h1>
-      <p>I hate writing these things...</p>
+      <p>I hate writing these things... So I got AI to do it for me.</p>
     </div>
   </header>
 {% include breadcrumbs.html %}
-<h1>About Me</h1>
+<h1>Bio</h1>
 
 <p>Hi, 👋🏻 I'm Simon. I'm based in the UK. I have a passion for building things that are simple, thoughtful and genuinely useful. Most of my time is spent writing code, experimenting with new technologies, or refining the tools and workflows that make development more enjoyable.
   I enjoy understanding how things work under the hood and believe there's always something new to learn.</p>
@@ -28,8 +28,8 @@ permalink: /about/
 
 <p>I enjoy building with technologies that give me control over the final product. That's one of the reasons this site is built with Jekyll and a collection of custom Ruby tooling rather than a traditional CMS. 
   Building the platform has become almost as rewarding as writing the content itself.</p>
-
-<p>Outside of software, I enjoy photography, gaming, music and exploring open-source software. I'm a long-time Linux user and enjoy experimenting with different distributions, self-hosting services and generally tinkering with anything that can be customised or automated.</p>
+<hr class="hard">
+<p>I enjoy photography, gaming, music and exploring open-source software. I'm a long-time Linux user and enjoy experimenting with different distributions, self-hosting services and generally tinkering with anything that can be customised or automated.</p>
 
 <p>Whether you've arrived here through a search engine, a social media post, or pure chance, I hope you find something useful. 
   If an article helps you solve a problem, sparks an idea, or simply makes you curious to explore a topic further, then this site has done exactly what it was built to do.</p>
@@ -37,7 +37,7 @@ permalink: /about/
   {% for item in site.data.about.personal %}
   <h1>{{ item.title }}</h1>
 
-
+<p>{{ item.brief }}</p>
 <div class="grid-about">
     <a href="{{item.slug}}" class="project">
           <img class="about-cover" src="{{ site.cdn_url }}images/projects/{{ item.cover }}" alt="{{ project.name }}">
@@ -52,7 +52,7 @@ permalink: /about/
               </div>
                {% for item in site.data.about.projects %}
   <h1>{{ item.title }}</h1>
-
+<p>{{ item.brief }}</p>
 
 <div class="grid-about">
     <a href="{{item.slug}}" class="project">

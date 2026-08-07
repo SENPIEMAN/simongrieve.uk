@@ -26,3 +26,17 @@
   description: Worked for a locally distributed glossy A5 lifestyle magazine.
   image: ecm.jpg
   url: /projects/essex-central/
+- name: Mind Candy
+  type: community
+  role: Community Moderator
+  date: 2005 - 2007
+  description: Worked for the company behind Moshi Monsters, a social networking site for children. I was responsible for helping moderate the community and ensuring the safety of the users.
+  image: moshi.webp
+  url: /projects/mind-candy/
+- name: Sulake
+  type: community
+  role: Community Moderator
+  date: 2003 - 2005
+  description: Worked for the company behind Habbo Hotel, a social networking site for teens. I was responsible for helping moderate the community and ensuring the safety of the users.
+  image: habbo.webp
+  url: /projects/sulake/

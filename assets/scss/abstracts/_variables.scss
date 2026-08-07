@@ -49,23 +49,22 @@ $font-mono: "Inconsolata Mono", monospace;
 $transition: .2s ease;
 $transition-slow: .4s ease;
 
-$hover-lift: translateY(-2px);
+$hover-lift: translateY(-4px) scale(1.01);
 
 
 /* ==========================================================
    Shadows
    ========================================================== */
 
-$shadow-hover: 0 6px 20px rgba(0,0,0,.5);
-
+$shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.726);
 
 /* ==========================================================
    Component Sizes
    ========================================================== */
 
-$avatar-size: 100px;
+$avatar-size: 120px;
 
-$card-cover-height: 150px;
+$card-cover-height: 200px;
 $about-cover-height: 200px;
 
 $toggle-width: 60px;

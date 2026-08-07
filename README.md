@@ -1,8 +1,8 @@
-# My Lil Corner of the Internet
+# 🏡 My Lil Corner of the Internet
 
 This site was a placeholder for a while. I originally only bought the domain name because I wanted to move to a more personal email address. I somehow ended up building a landing page, which only contained minimal info about myself, and a good place to store my CV for distriubution when applying for jobs.
 
-## Adding Jekyll
+## 🌐 Adding Jekyll
 
 After playing around for a while, I eventually ended up implementing Jekyll in to it, with the intention of making the up-keep of the site a bit easier. Frontmatter delegation etc for each page to keep it all uniform.
 
@@ -17,7 +17,7 @@ I've since added:
 
 The last two being just YAML lists.
 
-### YAML
+### 📄 YAML
 
 For example, the LEGO catalogue is structured as:
 
@@ -63,13 +63,13 @@ Similarly, Projects are stuctured roughly the same way. They follow the exact sa
 
 ---
 
-# The Blog
+# 📖 The Blog
 
 I honestly didn't intend on starting a blog. I've had many over the years, that were just angsty "posting for the sake of posting" kind of entries - which I did a lot of in my younger days.
 
 I have agreed with myself that I will only add posts now, for my journey through learning Web Development and COMPSCI. As well as general experiences (General Experiences 🫡 *- iykyk*)
 
-## The Ruby Tool
+#### 💎 The Ruby Tool
 
 With the help of AI, I created a Ruby tool that I could run that woiuld aid me in creating a new post - with the aim of being able to keep every entry uniform.
 
@@ -143,7 +143,7 @@ tags:
 ---
 ```
 
-## The Archive
+## 🗃️ The Archive
 
 As I plan on having this site for a while now *(I've actually commited and bought it for a few years, normally I buy domains on a yearly rolling contract)*  I decided one Saturday afternoon to go through the Wayback Machine and find some of my old domains that had Blogs on them, as well as my Blogger account.
 
@@ -177,7 +177,7 @@ The current blog will include articles posted over a two year timeline *(so at t
 | 2006 - 2013 |   ✅    |
 | 2026 onward |   ❌    |
 
-## Notes
+## 📝 Notes
 
 Notes will be used as a form of micro-blogging for me to document how I got on developing the website.
 
@@ -185,7 +185,7 @@ As with a regular Blog entry, I have created a similar Ruby tool to generate the
 
 ---
 
-# Styling
+# 💇 Styling
 
 I always build overly complicated stylesheets for my websites. Recently I started working with SCSS, which I have found a much simplified way of managing my styling. As somone who is more focussed on UI/UX, this made sense to me. Styling is broken down as:
 
@@ -233,7 +233,7 @@ And Jekyll compiles it in to `style.css` at build.
 
 ---
 
-# The Bones
+#  🏗️ Scaffolding
 
 The main scaffolding of the site itself works like this:
 
@@ -246,7 +246,7 @@ The main scaffolding of the site itself works like this:
 | Assets |  `/assets` | `/css`, `/fonts`, `/images`, `/js` `/og` and `/scss` | Images used on the site, the styling (including fonts) and JS scripts - all self-explainatory |
 | Posts  | `_posts` | *Any public blog post entry* | Contains all the blog posts that are ready to be published. Each post is a Markdown file with YAML frontmatter |
 
-## Infrastructure
+## 🌐 Infrastructure
 
 While Github Pages worked for a short time, it made more sense to use Cloudflare Pages for hosting this site.
 

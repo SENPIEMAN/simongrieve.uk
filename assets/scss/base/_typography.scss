@@ -6,7 +6,8 @@ body {
 
   font-family: $font-sans;
 
-  line-height: 1.6;
+  line-height: 1.7;
+  letter-spacing: -0.01em;
 
   color: colour(text);
 
@@ -38,7 +39,7 @@ $headings: (
   #{$heading} {
 
     @include heading($size);
-
+    
     color: colour(titles);
 
     margin-bottom: 0;

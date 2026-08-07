@@ -19,10 +19,12 @@ permalink: /projects/
 {% include breadcrumbs.html %}
   <h1>Projects</h1>
 <p>I've worked on several things in my time. I like to assist people with the services they provide.</p>
-<div class="grid-2">
+
+<div class="grid">
+<div class="cards">
     {% for project in site.data.projects %}
-    
-    <a href="{{ project.url }}" class="project">
+      
+    <a href="{{ project.url }}" class="card">
           <img class="project-cover" src="{{ site.cdn_url }}images/projects/{{ project.image }}" alt="{{ project.name }}">
          <span class="project-body">
             <span class="project-title">
@@ -34,12 +36,13 @@ permalink: /projects/
             </span>
           </a>
     {% endfor %}
-              </div>
-              <h2>🤝 Let's Work Together</h2>
-<p>I'm always open to any opportunity to join forces with someone on their own projects. 
-    If you think after seeing what I've been involved in previously, we would be a good team, you can email me at <a href="mailto:hireme@simongrieve.uk?subject=I'm%20interested%20in%20working%20with%20you!">hireme@simongrieve.uk</a> and open up a dialogue!
-        </div>
-      </div>
+                </div>
+                </div>
+      
+      <h2>🤝 Let's Work Together</h2>
+      <p>I'm always open to any opportunity to join forces with someone on their own projects. 
+      If you think after seeing what I've been involved in previously, we would be a good team, you can email me at <a href="mailto:hireme@simongrieve.uk?subject=I'm%20interested%20in%20working%20with%20you!">hireme@simongrieve.uk</a> and open up a dialogue!
+
     </div>
   </div>
 </main>

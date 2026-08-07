@@ -3,9 +3,11 @@ personal:
   cover: lego.png
   description: I've recently started building Lego in my fourties. 
   slug: /lego/
+  brief: Towards the end of 2025 I purchased my first Lego kit. Lego wasn't a luxury my parents could afford as a child.
 
 projects:
 - title: Projects
   cover: projects.png
   description: All the various side-hustles I have been involved with over the years.
   slug: /projects/
+  brief: I enjoy helping others achieve their visions for their projects. These are some I've worked on for other people, as well as my own personal ones.

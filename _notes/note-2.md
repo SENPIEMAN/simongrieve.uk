@@ -1,8 +1,7 @@
 ---
 layout: note
 title: "Note #2"
-slug: note-2
-date: 2026-07-01 12:00:00
+slug: "note-2"
 description: Automate all the things
 tags:
   - Note

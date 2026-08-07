@@ -45,6 +45,7 @@
   display: grid;
   grid-template-columns: $columns;
   gap: $gap;
+
 }
 
 /* ==========================================================
@@ -54,15 +55,14 @@
 @mixin surface {
 
   background: colour(card);
-  border: $border-width solid colour(border);
   border-radius: $radius;
 
 }
 
 @mixin glass {
 
-  backdrop-filter: blur(9px);
-  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 
 }
 

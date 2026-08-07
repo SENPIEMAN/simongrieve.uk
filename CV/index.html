@@ -7,12 +7,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
 :root {
-    --bg: #1f1a27;
+    --bg: #161320;
     --card: #4a4154c2;
-    --button: #383041;
+    --button: #22173F;
+    --title: #9a90d4;
     --track: #5a4571;
-    --border: #665293;
-    --text: #9ca2c4;
+    --border: #30254A;
+    --text: #DDDEFF;
     --muted: #707697;
     --accent: #493c68;
     --font-sans: "Inconsolata", sans-serif;
@@ -23,6 +24,7 @@
     --bg: #ffffff;
     --card: #f4f4f4;
     --text: #1a1a1a;
+    --title: #393A40;
     --muted: #4a4a4a;
     --border: #cccccc;
     --track: #eeeeee;
@@ -56,8 +58,10 @@ body {
     min-height: 297mm;
     padding: 40px; /* Reduced slightly for mobile comfort */
     margin: 20px auto;
+    padding-bottom: 0px; /* Extra space for footer */
     background-color: var(--bg);
-    border: 1px solid var(--muted);
+    border: 2px solid var(--border);
+
 }
 
 .container {
@@ -70,29 +74,37 @@ body {
 
 /* --- Typography --- */
 header {
-    border-bottom: 2px solid var(--border);
-    padding-bottom: 20px;
-    margin-bottom: 25px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
     text-align: center;
+
 }
 
 h1 {
     font-family: var(--font-mono);
-    color: #fff;
+    color: var(--title);
     margin: 0;
-    letter-spacing: 2px;
+    letter-spacing: 10px;
     text-transform: uppercase;
     font-size: clamp(1.5rem, 5vw, 2.2rem); /* Fluid sizing */
 }
 
 h2 {
     font-family: var(--font-mono);
-    color: var(--muted);
+    color: #a99fdf;
     font-size: 1.1rem;
-    border-bottom: 1px solid var(--track);
+    border-bottom: 1px solid var(--border);
     margin-top: 25px;
     margin-bottom: 15px;
+    letter-spacing: 5px;
     text-transform: uppercase;
+}
+h3 {
+    color: var(--muted);
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    font-size: 0.90rem;
+
 }
 
 p, li {
@@ -100,9 +112,16 @@ p, li {
     font-size: 0.935rem;
     color: var(--text);
 }
+
+a {
+    color: var(--muted);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+}
 .subtitle {
 
-color: var(--border);
+color: var(--muted);
 
 font-family: var(--font-mono);
 
@@ -124,41 +143,67 @@ font-weight: 700;
     flex-wrap: wrap; /* Allows date to drop below title if needed */
     gap: 5px;
 }
-.job-title-past { font-weight: bold; color: #fff; font-size: 1.05rem; }
-.job-title { font-weight: bold; color: #fff; font-size: 1.05rem; }
+.job-title-past { font-weight: bold; color: var(--title); font-size: 1.05rem; }
+.job-title { font-weight: bold; color: var(--title); font-size: 1.05rem; }
 .job-date { font-family: var(--font-mono); font-size: 0.85rem; color: var(--muted); }
 .company { color: var(--muted); font-size: 0.9rem; margin-bottom: 8px; }
+
+.redundancy { 
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-top: 8px;
+    border-left: 2px solid var(--muted);
+    padding-left: 15px;
+}
+.redundancy-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap; /* Allows date to drop below title if needed */
+    gap: 5px;
+}
+
 
 /* --- Components --- */
 .skill-tag {
     display: inline-block;
     background: var(--button);
-    border: 1px solid var(--border);
-    color: var(--text);
+    border: 1px solid var(--track);
+    color: var(--muted);
+    text-transform: uppercase;
     font-weight: 600;
     padding: 4px 10px;
     margin: 0 4px 8px 0;
     border-radius: 4px;
     font-size: 0.8rem;
 }
-
+.interests-tag {
+    display: inline-block;
+    background: var(--button);
+    border: 1px solid var(--track);
+    color: var(--muted);
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 4px 10px;
+    margin: 0 4px 8px 0;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
 .achievement {
     font-style: italic;
+    text-transform: uppercase;
     color: var(--text);
     font-size: 0.9rem;
     margin-top: 8px;
     border-left: 2px solid var(--accent);
     padding-left: 12px;
 }
-.edu-item b {
+.education { margin-bottom: 22px; }
 
-color: #fff;
+.edu { color: var(--muted); font-size: 0.9rem; margin-bottom: 8px; position-anchor: left;}
+.edu-mark { font-weight: bolder; font-family: var(--font-mono); font-size: 0.85rem; color: var(--muted); float: right; }
 
-display: block;
 
-margin-bottom: 4px;
-
-}
 /* --- Interface Layout --- */
 .interface-controls {
     display: flex;
@@ -278,9 +323,9 @@ input:checked + .slider:before { transform: translateX(26px); }
 }
 
 .download-btn {
-    background: var(--accent);
+    background: var(--button);
+    border: 1px solid var(--track);
     color: white;
-    border: none;
     padding: 12px 24px;
     border-radius: 8px;
     font-family: var(--font-mono);
@@ -341,14 +386,13 @@ input:checked + .slider:before { transform: translateX(26px); }
         <header>
             <h1>Simon Grieve</h1>
             <p class="subtitle">Community • Retail Management • Customer Experience</p>
-            <p class="contact-info">London, UK • hireme@simongrieve.uk • www.simongrieve.uk • 07860675940</p>
+            <p class="contact-info">📍 London, UK • ✉️ hireme@simongrieve.uk • 🌐 www.simongrieve.uk</p>
         </header>
 
         <div class="container">
             <div class="main-col">
                 <h2 style="margin-top:0;">Profile</h2>
-                <p>Experienced retail and hospitality manager with a strong background in customer experience, leadership, and team development. Skilled in fast-paced environments and committed to delivering high service standards.</p>
-
+                <p>I am a dedicated and adaptable professional with a strong background in community moderation, retail management, and customer service. I thrive in dynamic environments, leveraging my skills to enhance team performance and deliver exceptional customer experiences. My passion for technology and continuous learning drives me to stay ahead of industry trends, ensuring that I can contribute effectively to any project or team I join.</p>
                 <h2>Recent Experience</h2>
                 
                 <div class="job-entry">
@@ -356,7 +400,7 @@ input:checked + .slider:before { transform: translateX(26px); }
                         <span class="job-title">Assistant Manager</span>
                         <span class="job-date">May 2021 – Present</span>
                     </div>
-                    <div class="company">Card Factory — Essex</div>
+                    <div class="company">Card Factory • Essex</div>
                     <ul>
                         <li>Staff supervision and shift leadership</li>
                         <li>Stock management and ordering</li>
@@ -365,12 +409,12 @@ input:checked + .slider:before { transform: translateX(26px); }
                     </ul>
                 </div>
 
-                <div class="job-entry">
-                    <div class="job-header">
+                <div class="redundancy">
+                    <div class="redundancy-header">
                         <span class="job-title" style="color: var(--muted);">Redundancy (Pandemic)</span>
                         <span class="job-date">Mar 2020 – May 2021</span>
                     </div>
-                    <p class="gap-notice">Impacted by national lockdowns at the start of the COVID-19 Pandemic.</p>
+                    <p style="font-size: 0.9rem; color: var(--muted); line-height: 1.5; position: relative; bottom: 0; width: 100%; margin-top: 10px;">Impacted by national lockdowns at the start of the COVID-19 Pandemic.</p>
                 </div>
 
                 <div class="job-entry">
@@ -378,9 +422,11 @@ input:checked + .slider:before { transform: translateX(26px); }
                         <span class="job-title">Retail Sales Assistant</span>
                         <span class="job-date">Sept 2019 – Mar 2020</span>
                     </div>
-                    <div class="company">Hale Vaping — Essex</div>
+                    <div class="company">Hale Vaping • Essex</div>
                     <ul>
                         <li>Customer sales and product advice</li>
+                        <li>Stock management and ordering</li>
+                        <li>Cash handling and store operations</li>
                         
                     </ul>
                 </div>
@@ -390,7 +436,7 @@ input:checked + .slider:before { transform: translateX(26px); }
                         <span class="job-title">Team Manager</span>
                         <span class="job-date">Nov 2018 – Jul 2019</span>
                     </div>
-                    <div class="company">McMullen & Sons — Woodford Green</div>
+                    <div class="company">McMullen & Sons • Woodford Green</div>
                     <div class="achievement">
                         🏆 McMullen's Bronze Training Award<br>
                         🎯 100% Mystery Shopper score
@@ -402,7 +448,7 @@ input:checked + .slider:before { transform: translateX(26px); }
                         <span class="job-title">Assistant Manager</span>
                         <span class="job-date">Oct 2017 – Aug 2018</span>
                     </div>
-                    <div class="company">Mitchells & Butlers — Farringdon</div>
+                    <div class="company">Mitchells & Butlers • Farringdon</div>
                     <ul>
                         <li>Staff management and training</li>
                         <li>Sales reporting and stock control</li>
@@ -410,8 +456,8 @@ input:checked + .slider:before { transform: translateX(26px); }
                     </ul>
                 </div>
                             <h2>Other Experience</h2>
-                        <span class="job-title-past">Store Manager</span> <span class="job-date"> (2014–'17)</span>, 
-                        <span class="job-title-past">Community Moderator</span> <span class="job-date">(2003–'09)</span>.
+                        <span class="job-title-past">Store Manager</span> <span class="job-date"> (2014–'17)</span>
+                        <span class="job-title-past">Community Moderator</span> <span class="job-date">(2003–'09)</span>
 
 <p style="font-size: 0.9rem; line-height: 1.1;">Early career experience focused on store management, hospitality leadership, team supervision, and customer service in busy West End venues.</p>
             </div>
@@ -425,7 +471,7 @@ input:checked + .slider:before { transform: translateX(26px); }
                 <div class="skill-tag">Staff Training</div>
                 <div class="skill-tag">Problem Solving</div>
                 <div class="skill-tag">Community Moderation</div>
-
+                
                 <h2>Certifications</h2>
                 <p style="font-size: 0.9rem; line-height: 1.8;">
                     <strong>Food Hygiene Level 3</strong><br>
@@ -435,28 +481,36 @@ input:checked + .slider:before { transform: translateX(26px); }
 
                 <h2>Education</h2>
 
-                <div class="edu-item" style="font-size: 0.9rem;">
-                    <b>Davenant Foundation School</b>
-                    <span style="color: var(--muted); font-family: var(--font-mono); font-size: 0.8rem;">
-                        English <i>(C)</i>, IT <i>(C)</i>, Mathematics <i>(D)</i>, Science <i>(C, D)</i>, French <i>(D)</i>.
-                    </span>
-
-                </div>
-                <h2>Interests</h2>
-
-                <p style="font-size: 0.85rem; color: var(--muted); line-height: 1.6;">
+                    <span class="job-title">Davenant Foundation School</span>
+                    <div class="education">
+                        <span class="edu">English</span>
+                        <span class="edu-mark">(C)</span><br>
+                        <span class="edu">Info Tech</span>
+                        <span class="edu-mark">(C)</span><br>
+                        <span class="edu">Maths</span>
+                        <span class="edu-mark">(D)</span><br>
+                        <span class="edu">Science</span>
+                        <span class="edu-mark">(C)</span><br>
+                        <span class="edu">French</span>
+                        <span class="edu-mark">(D)</span>
+                        </div>
+                        <h2>Interests</h2>
+     <p style="font-size: 0.85rem; color: var(--muted); line-height: 1.6;">
                     Photography • Cooking • Walking • Water Sports • Gaming • PC Building • Web Design
                 </p>
-
+                <h2>Projects</h2>
+                    <p style="font-size: 0.85rem; color: var(--muted); line-height: 1.6;">A collection of my past ventures, hobbies, and personal projects can be found on the <a href="/projects/">Projects page</a> of my website.
+                </p>
             </div>
             
         </div>
   
-<center><p style="font-size: 0.9rem; color: var(--muted); line-height: 1.5;"><i>References are available upon request.</i></p></center>
-
+<p style="font-size: 0.9rem; color: var(--muted); line-height: 1.5; position: relative; bottom: 0; float: center; width: 100%; text-align: center; margin-top: 10px;">
+    <i>References are available upon request.</i>
+  </p>
     </div>
 
-  <script src="/script.js"></script>
+  <script src="/assets/js/switch.js"></script>
 
 </body>
 </html>

@@ -6,7 +6,9 @@
 
   @include grid(1fr, .2rem);
 
-  width: 100%;
+    width: 90%;
+
+  margin-left: 5%;
 
 }
 
@@ -32,6 +34,13 @@
   width: 100%;
 
 }
+.grid-4 {
+
+  @include grid(1fr, .2rem);
+
+  width: 100%;
+
+}
 /* ==========================================================
    About Grid
    ========================================================== */
@@ -40,9 +49,10 @@
 
   @include grid(1fr, .75rem);
 
-  width: 67%;
+  width: 60%;
 
-  align-self: center;
+  margin-left: 15%;
+
 
 }
 
