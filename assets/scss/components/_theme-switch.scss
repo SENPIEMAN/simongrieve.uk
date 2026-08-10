@@ -26,87 +26,42 @@
    Theme Switch
    ========================================================== */
 
-.theme-switch {
-
-  position: relative;
-
-  display: inline-block;
-
-  width: $toggle-width;
-  height: $toggle-height;
-
-}
-
-/* Hide native checkbox */
-
-.theme-switch input {
-
-  display: none;
-
-}
-
-/* ==========================================================
-   Slider
-   ========================================================== */
-
-.slider {
-
-  position: absolute;
-
-  inset: 0;
-
+.theme-toggle {
+  background: none;
+  border: 0;
+  padding: 4px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
 
-  border-radius: $toggle-height;
+  color: inherit;
 
-  border: 1px solid colour(border);
+  .theme-icon {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
 
-  background: colour(card);
+    transition:
+      opacity 0.2s ease,
+      transform 0.2s ease;
+  }
 
-  transition: $transition-slow;
+  .theme-icon-moon {
+    display: none;
+  }
 
-  @include flex(row, 0, center, space-around);
+  &:hover .theme-icon {
+    transform: translateY(-2px);
+  }
 
-}
-
-/* ==========================================================
-   Knob
-   ========================================================== */
-
-.slider::before {
-
-  content: "";
-
-  position: absolute;
-
-  left: 4px;
-  bottom: 4px;
-
-  width: $toggle-knob;
-  height: $toggle-knob;
-
-  border-radius: 50%;
-
-  background: white;
-
-  transition: $transition-slow;
-
-  z-index: 2;
-
-}
-
-/* ==========================================================
-   Checked
-   ========================================================== */
-
-.theme-switch input:checked + .slider {
-
-  background: colour(accent);
-
-}
-
-.theme-switch input:checked + .slider::before {
-
-  transform: translateX(26px);
-
+  &:focus-visible {
+    outline: 1px solid currentColor;
+    outline-offset: 4px;
+  }
 }

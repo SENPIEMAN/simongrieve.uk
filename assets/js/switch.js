@@ -1,20 +1,18 @@
-const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+const themeToggle = document.getElementById("theme-toggle");
 
-// Apply the saved theme on page load
-const currentTheme = localStorage.getItem('theme');
+themeToggle.addEventListener("click", () => {
+  const isDark = document.documentElement.dataset.theme === "dark";
 
-if (currentTheme) {
-    document.documentElement.setAttribute('data-theme', currentTheme);
+  document.documentElement.dataset.theme = isDark ? "light" : "dark";
 
-    // Keep the toggle in sync with the saved theme
-    toggleSwitch.checked = currentTheme === 'light';
-}
+  document.querySelector(".theme-icon-sun").style.display =
+    isDark ? "block" : "none";
 
-function switchTheme(e) {
-    const theme = e.target.checked ? 'light' : 'dark';
+  document.querySelector(".theme-icon-moon").style.display =
+    isDark ? "none" : "block";
 
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-}
-
-toggleSwitch.addEventListener('change', switchTheme, false);
+  themeToggle.setAttribute(
+    "aria-label",
+    isDark ? "Switch to dark mode" : "Switch to light mode"
+  );
+});
