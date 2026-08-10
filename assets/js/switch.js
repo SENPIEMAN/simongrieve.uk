@@ -1,18 +1,41 @@
-const themeToggle = document.getElementById("theme-toggle");
+const themeToggle = document.querySelector('#theme-toggle');
+const sunIcon = document.querySelector('.theme-icon-sun');
+const moonIcon = document.querySelector('.theme-icon-moon');
 
-themeToggle.addEventListener("click", () => {
-  const isDark = document.documentElement.dataset.theme === "dark";
+// Apply the saved theme on page load
+const currentTheme = localStorage.getItem('theme');
 
-  document.documentElement.dataset.theme = isDark ? "light" : "dark";
+if (currentTheme) {
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    updateThemeIcon(currentTheme);
+} else {
+    updateThemeIcon(
+        document.documentElement.getAttribute('data-theme') || 'dark'
+    );
+}
 
-  document.querySelector(".theme-icon-sun").style.display =
-    isDark ? "block" : "none";
+function updateThemeIcon(theme) {
+    const isLight = theme === 'light';
 
-  document.querySelector(".theme-icon-moon").style.display =
-    isDark ? "none" : "block";
+    sunIcon.style.display = isLight ? 'none' : 'block';
+    moonIcon.style.display = isLight ? 'block' : 'none';
 
-  themeToggle.setAttribute(
-    "aria-label",
-    isDark ? "Switch to dark mode" : "Switch to light mode"
-  );
-});
+    themeToggle.setAttribute(
+        'aria-label',
+        isLight ? 'Switch to dark mode' : 'Switch to light mode'
+    );
+}
+
+function switchTheme() {
+    const currentTheme =
+        document.documentElement.getAttribute('data-theme');
+
+    const theme = currentTheme === 'light' ? 'dark' : 'light';
+
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+
+    updateThemeIcon(theme);
+}
+
+themeToggle.addEventListener('click', switchTheme);
