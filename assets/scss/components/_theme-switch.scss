@@ -39,10 +39,10 @@
   color: inherit;
 
   .theme-icon {
-    width: 22px;
-    height: 22px;
-    fill: var(--muted);
-    stroke: var(--titles);
+    width: 24px;
+    height: 24px;
+    fill: var(--button);
+    stroke: var(--accent);
     stroke-width: 1.8;
     stroke-linecap: round;
     stroke-linejoin: round;
@@ -57,7 +57,7 @@
   }
 
   &:hover .theme-icon {
-    transform: translateY(-2px);
+    transform: translateY(-6px);
   }
 
   &:focus-visible {
