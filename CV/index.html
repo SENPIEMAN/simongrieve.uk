@@ -6,16 +6,21 @@
     <title>Simon Grieve - CV</title>
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
+/* 
+I can't be bothered converting this page to Jekyll or adding the stylesheet to SCSS yet. 
+I only want it for the PDF export, anyway...
+*/
 :root {
     --bg: #161320;
     --card: #4a4154c2;
     --button: #22173F;
-    --title: #9a90d4;
+    --title: #9ca2c4;
+    --subtitle: #7d77a2;
     --track: #5a4571;
     --border: #30254A;
-    --text: #DDDEFF;
+    --text: #b0b0b5;
     --muted: #707697;
-    --accent: #493c68;
+    --accent: #B2B3BD;
     --font-sans: "Inconsolata", sans-serif;
     --font-mono: "Inconsolata", monospace;
 }
@@ -24,11 +29,14 @@
     --bg: #ffffff;
     --card: #f4f4f4;
     --text: #1a1a1a;
-    --title: #393A40;
+    --title: #46484F;
+    --track: #424040;
+    --subtitle: #46484F;
     --muted: #4a4a4a;
     --border: #cccccc;
-    --track: #eeeeee;
+    --track: #494747;
     --button: #e0e0e0;
+    --shadow: 0 5px 7px -3px rgba(0, 0, 0, 0.403);
 }
 
 [data-theme="light"] h1, 
@@ -50,6 +58,7 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.1;
+    transition: 6s;
 }
 
 /* --- Layout Containers --- */
@@ -60,6 +69,7 @@ body {
     margin: 20px auto;
     padding-bottom: 0px; /* Extra space for footer */
     background-color: var(--bg);
+    transition: 6s;
     border: 2px solid var(--border);
 
 }
@@ -86,17 +96,17 @@ h1 {
     margin: 0;
     letter-spacing: 10px;
     text-transform: uppercase;
+    transition: 6s;
     font-size: clamp(1.5rem, 5vw, 2.2rem); /* Fluid sizing */
 }
 
 h2 {
     font-family: var(--font-mono);
-    color: #a99fdf;
+    color: var(--subtitle);
     font-size: 1.1rem;
     border-bottom: 1px solid var(--border);
-    margin-top: 25px;
-    margin-bottom: 15px;
     letter-spacing: 5px;
+    transition: 6s;
     text-transform: uppercase;
 }
 h3 {
@@ -111,6 +121,7 @@ p, li {
     font-family: var(--font-mono);
     font-size: 0.935rem;
     color: var(--text);
+    transition: 5s;
 }
 
 a {
@@ -144,15 +155,16 @@ font-weight: 700;
     gap: 5px;
 }
 .job-title-past { font-weight: bold; color: var(--title); font-size: 1.05rem; }
-.job-title { font-weight: bold; color: var(--title); font-size: 1.05rem; }
+.job-title { font-weight: bold; color: var(--accent); font-size: 1.05rem; transition: 6s;}
 .job-date { font-family: var(--font-mono); font-size: 0.85rem; color: var(--muted); }
 .company { color: var(--muted); font-size: 0.9rem; margin-bottom: 8px; }
 
 .redundancy { 
     color: var(--muted);
     font-size: 0.9rem;
+    font-style: unset;
     margin-top: 8px;
-    border-left: 2px solid var(--muted);
+    border-left: 3px solid var(--muted);
     padding-left: 15px;
 }
 .redundancy-header {
@@ -172,37 +184,28 @@ font-weight: 700;
     color: var(--muted);
     text-transform: uppercase;
     font-weight: 600;
+    transition: 6s;
     padding: 4px 10px;
     margin: 0 4px 8px 0;
     border-radius: 4px;
     font-size: 0.8rem;
+    box-shadow: var(--shadow);
 }
-.interests-tag {
-    display: inline-block;
-    background: var(--button);
-    border: 1px solid var(--track);
-    color: var(--muted);
-    text-transform: uppercase;
-    font-weight: 700;
-    padding: 4px 10px;
-    margin: 0 4px 8px 0;
-    border-radius: 4px;
-    font-size: 0.8rem;
-}
+
 .achievement {
     font-style: italic;
-    text-transform: uppercase;
-    color: var(--text);
+    text-transform: capitalize;
+    color: var(--subtitle);
     font-size: 0.9rem;
     margin-top: 8px;
     border-left: 2px solid var(--accent);
     padding-left: 12px;
 }
-.education { margin-bottom: 22px; }
+.education { margin-bottom: 22px;}
 
-.edu { color: var(--muted); font-size: 0.9rem; margin-bottom: 8px; position-anchor: left;}
-.edu-mark { font-weight: bolder; font-family: var(--font-mono); font-size: 0.85rem; color: var(--muted); float: right; }
-
+.edu { color: var(--muted); font-size: 0.9rem; margin-bottom: 8px; margin-top: 10px; position-anchor: left;}
+.edu-mark { font-weight: bold; font-family: var(--font-mono); font-size: 0.85rem; color: var(--muted); float: right; }
+.school { font-weight: bold; color: var(--title); font-size: 0.92rem;}
 
 /* --- Interface Layout --- */
 .interface-controls {
@@ -211,50 +214,67 @@ font-weight: 700;
     justify-content: center;
     gap: 20px;
     padding: 20px;
-    background: var(--bg);
 }
 
 
 
 /* --- Toggle Switch Styling --- */
-.theme-switch {
-    display: inline-block;
-    height: 34px;
-    position: relative;
-    width: 60px;
+.theme-toggle {
+  background: none;
+  border: 0;
+  padding: 4px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  color: inherit;
+
+  .theme-icon {
+    width: 22px;
+    height: 22px;
+    fill: var(--card);
+    stroke: var(--subtitle);
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+
+    transition:
+      opacity 0.2s ease,
+      transform 2s ease;
+  }
+
+  .theme-icon-moon {
+    display: none;
+  }
+
+  &:hover .theme-icon {
+    transform: translateY(-2px);
+  }
+
+  &:focus-visible {
+    outline: 1px solid currentColor;
+    outline-offset: 4px;
+  }
 }
+hr {
 
-.theme-switch input { display: none; }
+  border: none;
 
-.slider {
-    background-color: var(--button);
-    bottom: 0;
-    cursor: pointer;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    transition: .4s;
-    border-radius: 34px;
-    border: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+  border-bottom: 3px dashed var(--border);
+
+  margin: 0;
+
+  clear: both;
+
+  &.hard {
+
+    border-bottom-style: solid;
+
+  }
+
 }
-
-.slider:before {
-    background-color: white;
-    bottom: 4px;
-    content: "";
-    height: 24px;
-    left: 4px;
-    position: absolute;
-    transition: .4s;
-    width: 24px;
-    border-radius: 50%;
-    z-index: 2;
-}
-
 input:checked + .slider { background-color: var(--accent); }
 input:checked + .slider:before { transform: translateX(26px); }
 
@@ -266,7 +286,6 @@ input:checked + .slider:before { transform: translateX(26px); }
         position: sticky;
         top: 0;
         z-index: 1000;
-        border-bottom: 1px solid var(--border);
     }
 }
 /* =========================================================
@@ -325,20 +344,23 @@ input:checked + .slider:before { transform: translateX(26px); }
 .download-btn {
     background: var(--button);
     border: 1px solid var(--track);
-    color: white;
+    color: var(--muted);
     padding: 12px 24px;
     border-radius: 8px;
     font-family: var(--font-mono);
     font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    transition: transform 0.2s ease, background 0.2s ease;
+    box-shadow: var(--shadow);
+    transition: transform 2s ease, background 2s ease;
 }
 
 .download-btn:hover {
-    background: #5a4a82; /* Slightly lighter than accent */
-    transform: translateY(-2px);
+    background: var(--muted); /* Slightly lighter than accent */
+    transform: translateY(-8px);
+    color: var(--accent);
+    box-shadow: var(--shadow);
+    border: var(--bg);
 }
 
 .download-btn:active {
@@ -351,7 +373,6 @@ input:checked + .slider:before { transform: translateX(26px); }
         position: sticky;
         top: 0;
         z-index: 100;
-        border-bottom: 1px solid var(--border);
         padding: 15px;
     }
     
@@ -374,13 +395,31 @@ input:checked + .slider:before { transform: translateX(26px); }
         <span>📄</span> PDF
     </button>
     
-    <label class="theme-switch" for="checkbox">
-        <input type="checkbox" id="checkbox" />
-        <div class="slider">
-            <span class="icon sun">☀️</span>
-            <span class="icon moon">🌙</span>
-        </div>
-    </label>
+<div class="interface-controls">
+  <button
+    class="theme-toggle"
+    id="theme-toggle"
+    type="button"
+    aria-label="Switch to dark mode"
+  >
+    <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="12" cy="12" r="4"></circle>
+      <path d="M12 2v2"></path>
+      <path d="M12 20v2"></path>
+      <path d="m4.93 4.93 1.41 1.41"></path>
+      <path d="m17.66 17.66 1.41 1.41"></path>
+      <path d="M2 12h2"></path>
+      <path d="M20 12h2"></path>
+      <path d="m6.34 17.66-1.41 1.41"></path>
+      <path d="m19.07 4.93-1.41 1.41"></path>
+    </svg>
+
+    <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3
+               7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  </button>
+</div>
 </div>
     <div class="page">
         <header>
@@ -412,15 +451,15 @@ input:checked + .slider:before { transform: translateX(26px); }
                 <div class="redundancy">
                     <div class="redundancy-header">
                         <span class="job-title" style="color: var(--muted);">Redundancy (Pandemic)</span>
-                        <span class="job-date">Mar 2020 – May 2021</span>
+                        <span class="job-date">Apr 2020 – May 2021</span>
                     </div>
-                    <p style="font-size: 0.9rem; color: var(--muted); line-height: 1.5; position: relative; bottom: 0; width: 100%; margin-top: 10px;">Impacted by national lockdowns at the start of the COVID-19 Pandemic.</p>
+                    <p style="font-size: 0.9rem; color: var(--muted); line-height: 1.5; position: relative; bottom: 0; width: 100%; margin-top: 10px;">Impacted by business clousure due to national lockdowns at the start of the COVID-19 Global Pandemic.</p>
                 </div>
 
                 <div class="job-entry">
                     <div class="job-header">
                         <span class="job-title">Retail Sales Assistant</span>
-                        <span class="job-date">Sept 2019 – Mar 2020</span>
+                        <span class="job-date">Sept 2019 – April 2020</span>
                     </div>
                     <div class="company">Hale Vaping • Essex</div>
                     <ul>
@@ -433,7 +472,7 @@ input:checked + .slider:before { transform: translateX(26px); }
 
                 <div class="job-entry">
                     <div class="job-header">
-                        <span class="job-title">Team Manager</span>
+                        <span class="job-title">Supervising Manager</span>
                         <span class="job-date">Nov 2018 – Jul 2019</span>
                     </div>
                     <div class="company">McMullen & Sons • Woodford Green</div>
@@ -455,11 +494,11 @@ input:checked + .slider:before { transform: translateX(26px); }
                         <li>Opening/closing procedures</li>
                     </ul>
                 </div>
-                            <h2>Other Experience</h2>
+                            <h2>Previously Held Positions</h2>
                         <span class="job-title-past">Store Manager</span> <span class="job-date"> (2014–'17)</span>
                         <span class="job-title-past">Community Moderator</span> <span class="job-date">(2003–'09)</span>
 
-<p style="font-size: 0.9rem; line-height: 1.1;">Early career experience focused on store management, hospitality leadership, team supervision, and customer service in busy West End venues.</p>
+<p style="font-size: 0.9rem; line-height: 1.1;">Early career experience focused on store management, hospitality leadership and, customer service in busy West End venues. As well as Community Moderation for online platforms and, Call Center Operative for well-known telecomunications company.</p>
             </div>
 
             <div class="side-col">
@@ -473,19 +512,20 @@ input:checked + .slider:before { transform: translateX(26px); }
                 <div class="skill-tag">Community Moderation</div>
                 
                 <h2>Certifications</h2>
-                <p style="font-size: 0.9rem; line-height: 1.8;">
+                <p style="font-size: 0.9rem; line-height: 1.8; color: var(--muted)">
                     <strong>Food Hygiene Level 3</strong><br>
                     <strong>First Aid Certified</strong><br>
-                    <strong>APLH Level 2</strong>
+                    <strong>APLH Level 2</strong><br>
+                    <strong>Basic DBS</strong>
                 </p>
 
                 <h2>Education</h2>
 
-                    <span class="job-title">Davenant Foundation School</span>
+                    <span class="school">Davenant Foundation School</span>
                     <div class="education">
                         <span class="edu">English</span>
                         <span class="edu-mark">(C)</span><br>
-                        <span class="edu">Info Tech</span>
+                        <span class="edu">I.C.T</span>
                         <span class="edu-mark">(C)</span><br>
                         <span class="edu">Maths</span>
                         <span class="edu-mark">(D)</span><br>
@@ -496,17 +536,17 @@ input:checked + .slider:before { transform: translateX(26px); }
                         </div>
                         <h2>Interests</h2>
      <p style="font-size: 0.85rem; color: var(--muted); line-height: 1.6;">
-                    Photography • Cooking • Walking • Water Sports • Gaming • PC Building • Web Design
+                    Photography • Cooking • Walking • Gaming • PC Building • Web Design
                 </p>
                 <h2>Projects</h2>
-                    <p style="font-size: 0.85rem; color: var(--muted); line-height: 1.6;">A collection of my past ventures, hobbies, and personal projects can be found on the <a href="/projects/">Projects page</a> of my website.
+                    <p style="font-size: 0.85rem; color: var(--muted); line-height: 1.6;">A collection of my past ventures, hobbies, and personal projects can be found on the <a href="https://simongrieve.uk/projects/">Projects page</a> of my website.
                 </p>
             </div>
             
         </div>
-  
-<p style="font-size: 0.9rem; color: var(--muted); line-height: 1.5; position: relative; bottom: 0; float: center; width: 100%; text-align: center; margin-top: 10px;">
-    <i>References are available upon request.</i>
+  <hr class="hard">
+<p style="font-size: 0.8rem; text-transform: uppercase; color: var(--muted); line-height: 1.5; position: relative; bottom: 0; float: center; width: 100%; text-align: center;">
+    - References are available upon request -
   </p>
     </div>
 
