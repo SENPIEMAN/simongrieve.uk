@@ -2,6 +2,7 @@
 layout: note
 title: "Note #2"
 slug: "note-2"
+date: 2026-07-18
 description: Automate all the things
 tags:
   - Note

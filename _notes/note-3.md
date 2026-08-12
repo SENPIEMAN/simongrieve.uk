@@ -1,6 +1,7 @@
 ---
 layout: note
 title: "Note #3" 
+date: 2026-07-29
 slug: "note-3"
 description: Lots of site updates!
 tags:

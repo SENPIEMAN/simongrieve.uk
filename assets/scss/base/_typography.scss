@@ -98,10 +98,28 @@ pre {
 
   overflow-x: auto;
 
-  padding: $space;
+  padding: $space-xs;
 
   background: colour(card);
 
   border-radius: $radius;
 
+
+
+}
+.redacted {
+  background: colour(button);
+  color: transparent;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background .15s ease, color .15s ease;
+
+  // prevent accidental text selection while redacted
+  user-select: none;
+
+  &.is-revealed {
+    background: colour(bg);
+    color: colour(text);
+    user-select: text;
+  }
 }

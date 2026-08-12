@@ -55,21 +55,63 @@
 
   }
 
-  ul,
-  ol {
 
-    margin-bottom: $space;
-    justify-content: space-between;
-    list-style: none;
+.task-list li:has(input:checked) {
+  opacity: 0.65;
+    text-decoration: line-through;
+    text-decoration-thickness: 1px;
+    color: colour(muted);
+  
+}
+
+li {
+  &:has(input[type="checkbox"]) {
+    display: flex;
     align-items: flex-start;
+    gap: 0.6rem;
+    margin: 0.5rem 0;
 
+    input[type="checkbox"] {
+      appearance: none;
+      width: 1rem;
+      height: 1rem;
+      flex: 0 0 1rem;
+      margin: 0.2rem 0 0;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      background: var(--card);
+      position: relative;
+      transition: var(--transition);
+
+      &:checked {
+        background: var(--button);
+        border-color: var(--button-border);
+
+        &::after {
+          content: "";
+          position: absolute;
+          left: 5px;
+          top: 2px;
+          width: 5px;
+          height: 9px;
+          border: solid var(--accent);
+          border-width: 0 2px 2px 0;
+          transform: rotate(45deg);
+        }
+      }
+
+      &:focus-visible {
+        outline: 2px solid var(--muted);
+        outline-offset: 2px;
+      }
+    }
   }
+}
+}
 
   img {
 
     width: 100%;
-
-    border-radius: $radius;
 
   }
 
@@ -79,7 +121,7 @@
 
   }
 
-}
+
 
 /* ==========================================================
    Blockquotes
@@ -100,11 +142,11 @@
 
     @extend %mono;
 
-    font-size: 1rem;
-
+    font-size: 0.85rem;
+    color: colour(muted);
     font-style: italic;
 
-    line-height: 1.5;
+    line-height: 1.2;
 
     &:not(:last-child) {
 
@@ -151,4 +193,5 @@
   border-left: 4px solid var(--button-border);
   border-radius: 6px;
   box-shadow: $shadow-hover;
+
 }

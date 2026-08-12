@@ -26,7 +26,7 @@ function updateThemeIcon(theme) {
     );
 }
 
-function switchTheme() {
+async function switchTheme() {
     const currentTheme =
         document.documentElement.getAttribute('data-theme');
 
@@ -36,6 +36,9 @@ function switchTheme() {
     localStorage.setItem('theme', theme);
 
     updateThemeIcon(theme);
-}
 
+    if (window.renderMermaid) {
+        await window.renderMermaid();
+    }
+}
 themeToggle.addEventListener('click', switchTheme);
