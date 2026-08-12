@@ -12,3 +12,4 @@ blog/_site/
 Gemfile.lock
 tools/
 generate_og.rb
+assets/og/
